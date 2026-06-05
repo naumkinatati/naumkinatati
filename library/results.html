@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Результаты — Татьяна Наумкина</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- НАВИГАЦИЯ -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        Татьяна <em>Наумкина</em>
+      </a>
+      <a href="index.html" class="nav__back">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <line x1="19" y1="12" x2="5" y2="12"/>
+          <polyline points="12 19 5 12 12 5"/>
+        </svg>
+        На главную
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <!-- ШАПКА -->
+      <div class="results-header">
+        <span class="pill pill--accent" style="margin-bottom:16px;display:inline-flex;">
+          Твои результаты
+        </span>
+        <h1 style="font-size:clamp(1.5rem,4vw,2.2rem);margin-bottom:8px;" id="resultsTitle"></h1>
+      </div>
+
+      <!-- БАРЫ НАПРАВЛЕНИЙ -->
+      <div style="margin-bottom:32px;">
+        <div class="direction-bars" id="directionBars"></div>
+      </div>
+
+      <p style="font-size:.9rem;color:var(--muted);font-weight:300;line-height:1.7;margin-bottom:28px;">
+        На основе твоих ответов я определила главное направление работы для тебя в данный момент и подобрала практики. Начни с ОДНОЙ, к которой больше всего тянет
+      </p>
+
+      <hr class="divider">
+
+      <!-- КАРТОЧКА ПОБЕДИТЕЛЯ -->
+      <div class="results-winner fade-in" id="winnerCard">
+        <div class="results-winner__label" id="winnerLabel"></div>
+        <h2 class="results-winner__title" id="winnerTitle"></h2>
+        <p class="results-winner__desc" id="winnerDesc"></p>
+
+      </div>
+
+      <!-- РЕКОМЕНДОВАННЫЕ ПРАКТИКИ -->
+      <div style="margin-bottom:32px;">
+        <p class="results-section-label">Персональный набор практик</p>
+        <p class="text-muted" style="font-size:.875rem;margin-bottom:16px;font-weight:300;">
+          Подобраны на основе твоих ответов
+        </p>
+        <div class="recommended-practices" id="recommendedPractices"></div>
+
+        <div style="text-align:center;margin-top:8px;">
+          <a href="library.html" class="btn btn--outline">
+            Полная библиотека практик
+          </a>
+        </div>
+      </div>
+
+      <!-- КНОПКА СБРОСА -->
+      <div style="text-align:center; margin: 0 0 40px;">
+        <button onclick="resetQuiz()" class="btn btn--outline">
+          Пройти диагностику заново
+        </button>
+        <p class="text-muted" style="font-size:.85rem; margin-top:10px; font-weight:300;">
+          Результаты будут сброшены
+        </p>
+      </div>
+
+      <!-- CTA БЛОК -->
+      <div class="session-block fade-in" style="margin-bottom:60px;">
+        <span class="session-block__eyebrow">Хочу разобраться в своей ситуации</span>
+        <h2 class="session-block__title">Первая сессия — это<br>персональный разбор</h2>
+        <p class="session-block__desc">
+          Мы возьмём один конкретный запрос, то что сейчас давит сильнее всего, и поработаем с ним напрямую. Заранее формулировать ничего не нужно.
+        </p>
+        <p class="session-block__insight">
+          После первой встречи вместо каши в голове у вас будет понимание, что именно происходит и куда двигаться.
+        </p>
+        <p class="session-block__time"><span class="time-accent">55 минут</span> · <span class="time-accent">4 500 рублей</span></p>
+        <a href="https://forms.yandex.ru/u/6a2276a31f1eb5ab4da837c9"
+           target="_blank" rel="noopener"
+           class="btn btn--accent-light">
+          Записаться на первую сессию
+        </a>
+        <p class="session-block__disclaimer">
+          Это не продающая сессия, поэтому если после встречи вы захотите рассмотреть продолжение работы — обсудим в переписке или в другом удобном для вас формате ПОСЛЕ сессии.
+        </p>
+        <p class="session-block__disclaimer">
+          *Материалы библиотеки носят информационно-образовательный характер
+          и не являются заменой профессиональной психологической помощи
+        </p>
+      </div>
+
+
+      <!-- РЕЗУЛЬТАТЫ РАБОТЫ -->
+      <div style="margin-bottom:60px;">
+        <p class="results-section-label" style="margin-bottom:16px;">Что меняется в работе со мной</p>
+        <div class="outcomes-grid">
+
+          <div class="outcome-card">
+            <div class="outcome-card__header">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+              </svg>
+              <strong>Научишься действовать в свою пользу без чувства вины</strong>
+            </div>
+            <p>Перестанешь оправдываться за свои потребности. Начнёшь замечать, где именно ты себя останавливаешь и почему.</p>
+          </div>
+
+          <div class="outcome-card">
+            <div class="outcome-card__header">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+              <strong>Научишься возвращаться в текущий момент, даже когда вовне нестабильно</strong>
+            </div>
+            <p>Перестанешь прокручивать худшие сценарии по кругу и снова будешь управлять своими решениями.</p>
+          </div>
+
+          <div class="outcome-card">
+            <div class="outcome-card__header">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="8" r="6"/>
+                <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+              </svg>
+              <strong>Научишься ценить своё время, знания и ресурсы так же, как ценишь чужие</strong>
+            </div>
+            <p>Заметишь, где ты соглашаешься на меньшее и почему это кажется честным. Перестанешь заслуживать результат через страдание.</p>
+          </div>
+
+          <div class="outcome-card">
+            <div class="outcome-card__header">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+              <strong>Научишься строить обмен, где хорошо и тебе, и другому, а не кому-то одному</strong>
+            </div>
+            <p>Заметишь, где ты обслуживаешь чужие потребности за счёт своих. Перестанешь выбирать между собой и другими.</p>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__disclaimer">
+          *Материалы носят информационно-образовательный характер
+          и не являются заменой профессиональной психологической помощи.
+        </p>
+        <p class="footer__copy">© 2026 Татьяна Наумкина</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script>
+    // ============================================================
+    //  ПОДСЧЁТ РЕЗУЛЬТАТОВ
+    // ============================================================
+
+    const DIR_LABELS = {
+      contact:    'Я знаю, чего хочу, но не могу себе это позволить',
+      resilience: 'Тревога не отпускает и влияет на мои решения',
+      self:       'Мне всё достаётся только через усилие и боль',
+      relations:  'Чужие потребности всегда важнее моих'
+    };
+
+    const DIR_ICONS = {
+      contact:    '',
+      resilience: '',
+      self:       '',
+      relations:  ''
+    };
+
+    function calcResults() {
+      const saved = localStorage.getItem('quiz_answers');
+      if (!saved) return null;
+
+      const answers = JSON.parse(saved);
+      const scores  = { contact: 0, resilience: 0, self: 0, relations: 0 };
+      const maxes   = { contact: 0, resilience: 0, self: 0, relations: 0 };
+
+      QUESTIONS.forEach(q => {
+        maxes[q.direction] += 3; // максимальный score за вопрос
+        if (answers[q.id] !== undefined) {
+          scores[q.direction] += answers[q.id];
+        }
+      });
+
+      const pcts = {};
+      Object.keys(scores).forEach(dir => {
+        pcts[dir] = maxes[dir] > 0
+          ? Math.round((scores[dir] / maxes[dir]) * 100)
+          : 0;
+      });
+
+      // Победитель — направление с максимальным %
+      const winner = Object.keys(pcts).reduce((a, b) => pcts[a] >= pcts[b] ? a : b);
+
+      return { scores, pcts, winner };
+    }
+
+    // ============================================================
+    //  РЕНДЕР
+    // ============================================================
+
+    function render() {
+      const result = calcResults();
+
+      if (!result) {
+        // Нет данных — отправляем на квиз
+        window.location.href = 'quiz.html';
+        return;
+      }
+
+      const { pcts, winner } = result;
+      const winnerData = DIRECTIONS[winner];
+
+      // --- Заголовок страницы ---
+      document.getElementById('resultsTitle').textContent =
+        'Какое убеждение тебе мешает больше всего';
+
+      // --- Карточка победителя ---
+      document.getElementById('winnerLabel').textContent =
+        `Главное направление работы · ${pcts[winner]}%`;
+      document.getElementById('winnerTitle').textContent = winnerData.title;
+      document.getElementById('winnerDesc').textContent  = winnerData.description;
+
+      // --- Бары направлений (по убыванию) ---
+      const sorted = Object.entries(pcts).sort((a, b) => b[1] - a[1]);
+      const barsWrap = document.getElementById('directionBars');
+
+      sorted.forEach(([dir, pct]) => {
+        const isWinner = dir === winner;
+        const bar = document.createElement('div');
+        bar.className = `direction-bar${isWinner ? ' direction-bar--winner' : ''}`;
+        bar.innerHTML = `
+          <div class="direction-bar__header">
+            <span class="direction-bar__label">${DIR_LABELS[dir]}</span>
+            <span class="direction-bar__pct">${pct}%</span>
+          </div>
+          <div class="direction-bar__track">
+            <div class="direction-bar__fill" data-pct="${pct}"></div>
+          </div>
+        `;
+        barsWrap.appendChild(bar);
+      });
+
+      // Анимируем бары через IntersectionObserver
+      const barObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.querySelectorAll('.direction-bar__fill').forEach(fill => {
+              fill.style.width = fill.dataset.pct + '%';
+            });
+            barObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+
+      barObserver.observe(barsWrap);
+
+      // --- Рекомендованные практики ---
+      // 4 из победителя + по 1 из остальных если % > 40
+      const recWrap = document.getElementById('recommendedPractices');
+      const recommended = [];
+
+      // 4 из победителя
+      const winnerPractices = getPracticesByDirection(winner);
+      recommended.push(...winnerPractices.slice(0, 4));
+
+      // По 1 из остальных если > 40%
+      sorted.forEach(([dir, pct]) => {
+        if (dir !== winner && pct > 40) {
+          const dp = getPracticesByDirection(dir);
+          if (dp.length > 0) recommended.push(dp[0]);
+        }
+      });
+
+      recommended.forEach((p, i) => {
+        const card = document.createElement('a');
+        card.href = `practice.html?id=${p.id}&from=results`;
+        card.className = 'rec-practice-card';
+        card.innerHTML = `
+          <div class="rec-practice-card__num">${String(i + 1).padStart(2, '0')}</div>
+          <div class="rec-practice-card__body">
+            <div class="rec-practice-card__title">${p.title}</div>
+            <div class="rec-practice-card__tagline">${p.tagline}</div>
+          </div>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+               stroke="var(--taupe)" stroke-width="2" style="flex-shrink:0;margin-top:4px;">
+            <polyline points="9 18 15 12 9 6"/>
+          </svg>
+        `;
+        recWrap.appendChild(card);
+      });
+    }
+
+    // ============================================================
+    //  АНИМАЦИИ
+    // ============================================================
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    // ============================================================
+    //  СБРОС РЕЗУЛЬТАТОВ
+    // ============================================================
+    function resetQuiz() {
+      localStorage.removeItem('quiz_answers');
+      localStorage.removeItem('quiz_current');
+      window.location.href = 'quiz.html';
+    }
+
+    // ============================================================
+    //  СТАРТ
+    // ============================================================
+    render();
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

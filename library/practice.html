@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Практика — Татьяна Наумкина</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- НАВИГАЦИЯ -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        Татьяна <em>Наумкина</em>
+      </a>
+      <a href="library.html" class="nav__back">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <line x1="19" y1="12" x2="5" y2="12"/>
+          <polyline points="12 19 5 12 12 5"/>
+        </svg>
+        Все практики
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+
+      <div id="practiceContent" style="padding-top:96px;padding-bottom:60px;">
+        <!-- Заполняется JS -->
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__disclaimer">
+          *Материалы носят информационно-образовательный характер
+          и не являются заменой профессиональной психологической помощи.
+        </p>
+        <p class="footer__copy">© 2025 Татьяна Наумкина</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script>
+    const DIR_LABELS = {
+      contact:    'Не могу позволить себе то, что хочу',
+      resilience: 'Тревога не отпускает',
+      self:       'Всё достаётся только через боль',
+      relations:  'Чужие потребности важнее моих'
+    };
+
+    // ============================================================
+    //  РЕНДЕР
+    // ============================================================
+    function render() {
+      const id = new URLSearchParams(window.location.search).get('id');
+      const practice = getPracticeById(id);
+
+      if (!practice) {
+        window.location.href = 'library.html';
+        return;
+      }
+
+      // Обновляем title страницы
+      document.title = `${practice.title} — Татьяна Наумкина`;
+
+      const stepsHTML = practice.steps
+        .map(s => `<li>${s}</li>`)
+        .join('');
+
+      const fromResults = new URLSearchParams(window.location.search).get('from') === 'results';
+
+      const wrap = document.getElementById('practiceContent');
+      wrap.innerHTML = `
+
+        <!-- ТЕГ + ЗАГОЛОВОК -->
+        <div style="margin-bottom:28px;" class="fade-in">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+            <span class="pill pill--${practice.direction}">
+              ${DIR_LABELS[practice.direction]}
+            </span>
+            <span style="font-size:.8rem;color:var(--muted);font-weight:300;display:flex;align-items:center;gap:5px;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                   stroke="var(--accent)" stroke-width="2">
+                <circle cx="12" cy="12" r="9"/>
+                <polyline points="12 7 12 12 15 15"/>
+              </svg>
+              ${practice.duration}
+            </span>
+          </div>
+
+          <h1 style="margin-bottom:10px;">${practice.title}</h1>
+          <p style="font-size:1.05rem;color:var(--muted);font-weight:300;line-height:1.7;">
+            ${practice.tagline}
+          </p>
+        </div>
+
+        <!-- ЗАЧЕМ ЭТО ТЕБЕ -->
+        <div class="practice-section practice-section--why fade-in">
+          <div class="practice-section__label">Зачем это тебе</div>
+          <p class="practice-section__text">${practice.why}</p>
+        </div>
+
+        <!-- КАК ВЫПОЛНЯТЬ -->
+        <div class="practice-section fade-in">
+          <div class="practice-section__label">Как выполнять</div>
+          <ol class="steps-list">
+            ${stepsHTML}
+          </ol>
+        </div>
+
+        <!-- ОБРАТИ ВНИМАНИЕ -->
+        <div class="practice-note fade-in">
+          ${practice.note}
+        </div>
+
+        <!-- КНОПКА НАЗАД -->
+        <div class="fade-in" style="margin-bottom:40px;display:flex;gap:12px;flex-wrap:wrap;">
+          ${fromResults ? `<a href="results.html" class="btn btn--outline">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2">
+              <line x1="19" y1="12" x2="5" y2="12"/>
+              <polyline points="12 19 5 12 12 5"/>
+            </svg>
+            Вернуться к результатам
+          </a>` : ''}
+          <a href="library.html" class="btn btn--outline">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2">
+              <line x1="19" y1="12" x2="5" y2="12"/>
+              <polyline points="12 19 5 12 12 5"/>
+            </svg>
+            Все практики
+          </a>
+        </div>
+
+        <!-- CTA БЛОК -->
+        <div class="session-block fade-in" style="margin-bottom:40px;">
+          <span class="session-block__eyebrow">Хочу разобраться в своей ситуации</span>
+          <h2 class="session-block__title">Первая сессия — это<br>персональный разбор</h2>
+          <p class="session-block__desc">
+            Мы возьмём один конкретный запрос, то что сейчас давит сильнее всего, и поработаем с ним напрямую. Заранее формулировать ничего не нужно.
+          </p>
+          <p class="session-block__insight">
+            После первой встречи вместо каши в голове у вас будет понимание, что именно происходит и куда двигаться.
+          </p>
+          <p class="session-block__time"><span class="time-accent">55 минут</span> · <span class="time-accent">4 500 рублей</span></p>
+          <a href="https://forms.yandex.ru/u/6a2276a31f1eb5ab4da837c9"
+             target="_blank" rel="noopener"
+             class="btn btn--accent-light">
+            Записаться на первую сессию
+          </a>
+          <p class="session-block__disclaimer">
+            Это не продающая сессия, поэтому если после встречи вы захотите рассмотреть продолжение работы — обсудим в переписке или в другом удобном для вас формате ПОСЛЕ сессии.
+          </p>
+          <p class="session-block__disclaimer">
+            *Материалы библиотеки носят информационно-образовательный характер
+            и не являются заменой профессиональной психологической помощи
+          </p>
+        </div>
+
+        <!-- ЧТО МЕНЯЕТСЯ В РАБОТЕ СО МНОЙ -->
+        <div style="margin-bottom:60px;" class="fade-in">
+          <p class="results-section-label" style="margin-bottom:16px;">Что меняется в работе со мной</p>
+          <div class="outcomes-grid">
+
+            <div class="outcome-card">
+              <div class="outcome-card__header">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+                </svg>
+                <strong>Научишься действовать в свою пользу без чувства вины</strong>
+              </div>
+              <p>Перестанешь оправдываться за свои потребности. Начнёшь замечать, где именно ты себя останавливаешь и почему.</p>
+            </div>
+
+            <div class="outcome-card">
+              <div class="outcome-card__header">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                </svg>
+                <strong>Научишься возвращаться в текущий момент, даже когда вовне нестабильно</strong>
+              </div>
+              <p>Перестанешь прокручивать худшие сценарии по кругу и снова будешь управлять своими решениями.</p>
+            </div>
+
+            <div class="outcome-card">
+              <div class="outcome-card__header">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="8" r="6"/>
+                  <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+                </svg>
+                <strong>Научишься ценить своё время, знания и ресурсы так же, как ценишь чужие</strong>
+              </div>
+              <p>Заметишь, где ты соглашаешься на меньшее и почему это кажется честным. Перестанешь заслуживать результат через страдание.</p>
+            </div>
+
+            <div class="outcome-card">
+              <div class="outcome-card__header">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+                <strong>Научишься строить обмен, где хорошо и тебе, и другому, а не кому-то одному</strong>
+              </div>
+              <p>Заметишь, где ты обслуживаешь чужие потребности за счёт своих. Перестанешь выбирать между собой и другими.</p>
+            </div>
+
+          </div>
+        </div>
+
+      `;
+
+      // Анимации
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+      // Первые элементы сразу
+      wrap.querySelectorAll('.fade-in').forEach((el, i) => {
+        setTimeout(() => {
+          el.classList.add('visible');
+        }, i * 80);
+      });
+    }
+
+    render();
+  </script>
+
+</body>
+</html>

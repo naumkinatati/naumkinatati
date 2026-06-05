@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Библиотека практик — Татьяна Наумкина</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- НАВИГАЦИЯ -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        Татьяна <em>Наумкина</em>
+      </a>
+      <a href="index.html" class="nav__back">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <line x1="19" y1="12" x2="5" y2="12"/>
+          <polyline points="12 19 5 12 12 5"/>
+        </svg>
+        На главную
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container container--wide">
+
+      <!-- ШАПКА -->
+      <div style="padding-top:96px;padding-bottom:32px;">
+        <span class="pill pill--accent" style="margin-bottom:14px;display:inline-flex;">
+          16 практик
+        </span>
+        <h1 style="margin-bottom:10px;">Библиотека практик</h1>
+        <p class="text-muted" style="font-weight:300;max-width:500px;line-height:1.7;">
+          Короткие упражнения, которые можно делать самостоятельно.
+          Выбери направление или смотри все сразу.
+        </p>
+      </div>
+
+      <!-- ФИЛЬТР -->
+      <div class="filter-pills" id="filterPills" style="margin-bottom:28px;">
+        <button class="filter-pill active" data-dir="all">Все</button>
+        <button class="filter-pill" data-dir="contact">Не могу позволить себе то, что хочу</button>
+        <button class="filter-pill" data-dir="resilience">Тревога не отпускает</button>
+        <button class="filter-pill" data-dir="self">Всё достаётся только через боль</button>
+        <button class="filter-pill" data-dir="relations">Чужие потребности важнее моих</button>
+      </div>
+
+      <!-- СЕТКА КАРТОЧЕК -->
+      <div class="practices-grid stagger" id="practicesGrid"></div>
+
+      <!-- CTA БЛОК -->
+      <div style="max-width:640px;margin:48px auto 60px;">
+        <div class="session-block session-block--compact">
+          <span class="session-block__eyebrow">Хочу разобраться глубже</span>
+          <h2 class="session-block__title">Первая сессия — персональный разбор</h2>
+          <p class="session-block__time"><span class="time-accent">55 минут</span> · <span class="time-accent">4 500 рублей</span></p>
+          <a href="https://forms.yandex.ru/u/6a2276a31f1eb5ab4da837c9"
+             target="_blank" rel="noopener"
+             class="btn btn--accent-light">
+            Записаться
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <p class="footer__disclaimer">
+          *Материалы носят информационно-образовательный характер
+          и не являются заменой профессиональной психологической помощи.
+        </p>
+        <p class="footer__copy">© 2025 Татьяна Наумкина</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script>
+    const DIR_LABELS = {
+      contact:    'Не могу позволить себе то, что хочу',
+      resilience: 'Тревога не отпускает',
+      self:       'Всё достаётся только через боль',
+      relations:  'Чужие потребности важнее моих'
+    };
+
+    let activeDir = 'all';
+
+    // ============================================================
+    //  РЕНДЕР КАРТОЧЕК
+    // ============================================================
+    function renderCards(dir) {
+      const grid = document.getElementById('practicesGrid');
+      const list = dir === 'all'
+        ? PRACTICES
+        : PRACTICES.filter(p => p.direction === dir);
+
+      // Анимация исчезновения
+      grid.style.transition = 'opacity 180ms ease';
+      grid.style.opacity = '0';
+
+      setTimeout(() => {
+        grid.innerHTML = '';
+
+        list.forEach(p => {
+          const card = document.createElement('a');
+          card.href = `practice.html?id=${p.id}`;
+          card.className = 'card card--practice card--link';
+          card.innerHTML = `
+            <div class="card__tag">
+              <span class="pill pill--${p.direction}">${DIR_LABELS[p.direction]}</span>
+            </div>
+            <div class="card__title">${p.title}</div>
+            <div class="card__tagline">${p.tagline}</div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:12px;">
+              <span style="font-size:.8rem;color:var(--muted);font-weight:300;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                     stroke="var(--accent)" stroke-width="2"
+                     style="display:inline;vertical-align:middle;margin-right:4px;">
+                  <circle cx="12" cy="12" r="9"/>
+                  <polyline points="12 7 12 12 15 15"/>
+                </svg>
+                ${p.duration}
+              </span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
+                   stroke="var(--taupe)" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"/>
+              </svg>
+            </div>
+          `;
+          grid.appendChild(card);
+        });
+
+        grid.style.opacity = '1';
+
+        // Stagger-анимация
+        grid.classList.remove('visible');
+        requestAnimationFrame(() => {
+          setTimeout(() => grid.classList.add('visible'), 20);
+        });
+      }, 180);
+    }
+
+    // ============================================================
+    //  ФИЛЬТР
+    // ============================================================
+    document.getElementById('filterPills').addEventListener('click', e => {
+      const btn = e.target.closest('.filter-pill');
+      if (!btn) return;
+
+      document.querySelectorAll('.filter-pill').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      activeDir = btn.dataset.dir;
+      renderCards(activeDir);
+    });
+
+    // ============================================================
+    //  СТАРТ
+    // ============================================================
+
+    // Проверяем параметр из URL (если пришли с results с конкретным направлением)
+    const urlDir = new URLSearchParams(window.location.search).get('dir');
+    if (urlDir && ['contact','resilience','self','relations'].includes(urlDir)) {
+      activeDir = urlDir;
+      document.querySelectorAll('.filter-pill').forEach(b => {
+        b.classList.toggle('active', b.dataset.dir === urlDir);
+      });
+    }
+
+    renderCards(activeDir);
+  </script>
+
+</body>
+</html>
