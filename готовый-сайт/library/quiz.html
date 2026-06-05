@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Диагностика — Татьяна Наумкина</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- НАВИГАЦИЯ -->
+  <nav class="nav">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">
+        Татьяна <em>Наумкина</em>
+      </a>
+      <button class="nav__back" id="navBack" onclick="goBack()">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <line x1="19" y1="12" x2="5" y2="12"/>
+          <polyline points="12 19 5 12 12 5"/>
+        </svg>
+        Назад
+      </button>
+    </div>
+  </nav>
+
+  <!-- LOADER -->
+  <div class="loader-overlay" id="loader">
+    <div class="loader-dots">
+      <span></span><span></span><span></span>
+    </div>
+    <p class="loader-text">Считаем результаты…</p>
+  </div>
+
+  <!-- ОСНОВНОЙ КОНТЕНТ -->
+  <main>
+    <div class="container">
+
+      <!-- ПРОГРЕСС -->
+      <div class="quiz-header">
+        <div class="quiz-counter" id="counter">Вопрос 1 из 16</div>
+        <div class="progress-bar">
+          <div class="progress-bar__fill" id="progressFill" style="width: 0%"></div>
+        </div>
+      </div>
+
+      <!-- ВОПРОС -->
+      <div id="questionWrap">
+        <p class="quiz-question" id="questionText"></p>
+
+        <div class="quiz-options" id="optionsWrap"></div>
+
+        <div class="quiz-nav">
+          <button class="quiz-nav-back" id="backBtn" onclick="goBack()">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <line x1="19" y1="12" x2="5" y2="12"/>
+              <polyline points="12 19 5 12 12 5"/>
+            </svg>
+            Назад
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="data.js"></script>
+  <script>
+    // ============================================================
+    //  СОСТОЯНИЕ
+    // ============================================================
+    let questions = [];   // перемешанные вопросы
+    let current  = 0;     // текущий индекс
+    let answers  = {};    // { questionId: score }
+
+    // ============================================================
+    //  ИНИЦИАЛИЗАЦИЯ
+    // ============================================================
+    function init() {
+      // Перемешиваем вопросы
+      questions = shuffleArray(QUESTIONS);
+
+      // Восстанавливаем прогресс если есть
+      const saved = localStorage.getItem('quiz_answers');
+      const savedIdx = localStorage.getItem('quiz_current');
+      if (saved) {
+        answers = JSON.parse(saved);
+        current = savedIdx ? parseInt(savedIdx) : 0;
+        // Если уже закончили — на results
+        if (current >= questions.length) {
+          window.location.href = 'results.html';
+          return;
+        }
+      }
+
+      renderQuestion();
+    }
+
+    // ============================================================
+    //  РЕНДЕР ВОПРОСА
+    // ============================================================
+    const SLIDER_LABELS = ['Никогда', 'Иногда', 'Часто', 'Почти всегда'];
+
+    function renderQuestion() {
+      const q = questions[current];
+      const total = questions.length;
+
+      // Счётчик и прогресс
+      document.getElementById('counter').textContent =
+        `Вопрос ${current + 1} из ${total}`;
+      document.getElementById('progressFill').style.width =
+        `${(current / total) * 100}%`;
+
+      // Кнопка «Назад» скрыта на первом вопросе
+      document.getElementById('backBtn').style.visibility =
+        current === 0 ? 'hidden' : 'visible';
+      document.getElementById('navBack').style.visibility =
+        current === 0 ? 'hidden' : 'visible';
+
+      // Текст вопроса
+      document.getElementById('questionText').textContent = q.text;
+
+      // Слайдер
+      const savedScore = answers[q.id] !== undefined ? answers[q.id] : 0;
+      const wrap = document.getElementById('optionsWrap');
+      wrap.innerHTML = `
+        <div class="quiz-slider-wrap">
+          <div class="quiz-slider-current-label" id="sliderCurrentLabel">${SLIDER_LABELS[savedScore]}</div>
+          <input type="range" class="quiz-slider" id="sliderInput"
+                 min="0" max="3" step="1" value="${savedScore}">
+          <div class="quiz-slider-labels">
+            <span>Никогда</span>
+            <span>Иногда</span>
+            <span>Часто</span>
+            <span>Почти всегда</span>
+          </div>
+        </div>
+        <button class="btn btn--primary quiz-slider-next" id="sliderNext">
+          Далее
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"/>
+            <polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </button>
+      `;
+
+      const slider = document.getElementById('sliderInput');
+      const currentLabel = document.getElementById('sliderCurrentLabel');
+
+      slider.addEventListener('input', () => {
+        currentLabel.textContent = SLIDER_LABELS[parseInt(slider.value)];
+      });
+
+      document.getElementById('sliderNext').addEventListener('click', () => {
+        selectOption(parseInt(slider.value));
+      });
+
+      // Анимация появления
+      const wrap2 = document.getElementById('questionWrap');
+      wrap2.style.opacity = '0';
+      wrap2.style.transform = 'translateY(12px)';
+      requestAnimationFrame(() => {
+        wrap2.style.transition = 'opacity 280ms ease, transform 280ms ease';
+        wrap2.style.opacity = '1';
+        wrap2.style.transform = 'translateY(0)';
+      });
+    }
+
+    // ============================================================
+    //  ВЫБОР ОТВЕТА
+    // ============================================================
+    function selectOption(score) {
+      const q = questions[current];
+
+      // Сохраняем ответ
+      answers[q.id] = score;
+      localStorage.setItem('quiz_answers', JSON.stringify(answers));
+
+      if (current < questions.length - 1) {
+        current++;
+        localStorage.setItem('quiz_current', current);
+        animateNext();
+      } else {
+        localStorage.setItem('quiz_current', questions.length);
+        showLoader();
+      }
+    }
+
+    // ============================================================
+    //  АНИМАЦИЯ ПЕРЕХОДА
+    // ============================================================
+    function animateNext() {
+      const wrap = document.getElementById('questionWrap');
+      wrap.style.transition = 'opacity 200ms ease, transform 200ms ease';
+      wrap.style.opacity = '0';
+      wrap.style.transform = 'translateY(-8px)';
+
+      setTimeout(() => {
+        renderQuestion();
+      }, 200);
+    }
+
+    // ============================================================
+    //  ЛОАДЕР → results.html
+    // ============================================================
+    function showLoader() {
+      const wrap = document.getElementById('questionWrap');
+      wrap.style.transition = 'opacity 200ms ease';
+      wrap.style.opacity = '0';
+
+      const loader = document.getElementById('loader');
+      loader.classList.add('visible');
+
+      setTimeout(() => {
+        window.location.href = 'results.html';
+      }, 1400);
+    }
+
+    // ============================================================
+    //  НАЗАД
+    // ============================================================
+    function goBack() {
+      if (current === 0) {
+        window.location.href = 'index.html';
+        return;
+      }
+      current--;
+      localStorage.setItem('quiz_current', current);
+
+      const wrap = document.getElementById('questionWrap');
+      wrap.style.transition = 'opacity 200ms ease, transform 200ms ease';
+      wrap.style.opacity = '0';
+      wrap.style.transform = 'translateY(8px)';
+
+      setTimeout(() => renderQuestion(), 200);
+    }
+
+    // ============================================================
+    //  СТАРТ
+    // ============================================================
+    init();
+  </script>
+
+</body>
+</html>
