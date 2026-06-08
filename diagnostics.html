@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/png" href="img/favicon.png"/>
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Диагностика — Татьяна Наумкина</title>
+  <meta name="description" content="Психологическая диагностика: узнайте свой тип характера, глубинные убеждения и сценарии, которые стоят за вашим состоянием."/>
+  <link rel="canonical" href="https://naumkinatati.ru/diagnostics.html"/>
+  <link rel="stylesheet" href="fonts/fonts.css"/>
+  <link rel="stylesheet" href="fonts/fontawesome/css/all.min.css" media="print" onload="this.media='all'"/>
+  <noscript><link rel="stylesheet" href="fonts/fontawesome/css/all.min.css"/></noscript>
+<style>
+:root {
+  --cream: #FAF7F2;
+  --warm-white: #FFFDF9;
+  --sand: #E8E0D4;
+  --dark: #2C2416;
+  --text: #3D3328;
+  --muted: #7A6E62;
+  --accent: #C17F4A;
+  --accent-light: #F0DCC8;
+  --accent-dark: #A06535;
+  --font-d: 'Cormorant Garamond', Georgia, serif;
+  --font-b: 'DM Sans', system-ui, sans-serif;
+  --mw: 760px;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-b);
+  font-size: 1.05rem;
+  color: var(--text);
+  background: var(--warm-white);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+@media(min-width:769px){body{font-size:1.15rem}}
+a { color: inherit; text-decoration: none; }
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  height: 68px;
+  background: rgba(255,253,249,.93);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(196,184,168,.22);
+}
+.nav-logo {
+  font-family: var(--font-d);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+.nav-logo em { color: var(--accent); font-style: normal; }
+.nav-logo:hover { color: var(--accent); }
+.nav-back {
+  margin-left: auto;
+  font-size: .9rem;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color .2s;
+}
+.nav-back:hover { color: var(--accent); }
+
+.page-wrap {
+  max-width: var(--mw);
+  margin: 0 auto;
+  padding: 120px 24px 80px;
+}
+
+.page-tag {
+  display: inline-block;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  background: var(--accent-light);
+  padding: 4px 14px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+}
+h1 {
+  font-family: var(--font-d);
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--dark);
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+.page-sub {
+  font-size: 1.05rem;
+  color: var(--muted);
+  font-weight: 300;
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--sand);
+}
+
+.tool-list { display: flex; flex-direction: column; gap: 16px; }
+.tool-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 32px;
+  padding: 28px 36px;
+  background: #fff;
+  border: 1px solid var(--sand);
+  border-radius: 20px;
+  transition: background .2s, border-color .2s;
+  text-decoration: none;
+  color: inherit;
+}
+.tool-row:hover { background: var(--cream); }
+.tool-name {
+  font-size: 1.15rem;
+  color: var(--dark);
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+.tool-subtitle {
+  font-size: .93rem;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.6;
+}
+.tool-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 220px;
+  background: var(--accent-light);
+  color: var(--accent-dark);
+  padding: 12px 22px;
+  border-radius: 14px;
+  font-size: .92rem;
+  font-weight: 600;
+  flex-shrink: 0;
+  transition: background .2s;
+}
+.tool-row:hover .tool-cta { background: var(--accent); color: #fff; }
+
+footer {
+  margin-top: 64px;
+  padding: 32px 40px;
+  border-top: 1px solid var(--sand);
+  text-align: center;
+}
+.foot-meta { font-size: .88rem; color: var(--muted); margin-bottom: 4px; }
+.foot-meta a { color: var(--accent); }
+
+@media (max-width: 600px) {
+  nav { padding: 0 20px; }
+  .page-wrap { padding: 40px 20px 64px; }
+  footer { padding: 24px 20px; }
+  .tool-row { grid-template-columns: 1fr; gap: 16px; padding: 24px 20px; }
+  .tool-cta { width: 100%; }
+}
+</style>
+<script src="js/consent.js"></script>
+</head>
+<body>
+
+<nav>
+  <a href="https://naumkinatati.ru/" class="nav-logo">Татьяна <em>Наумкина</em></a>
+  <a href="https://naumkinatati.ru/" class="nav-back">← На главную</a>
+</nav>
+
+<main class="page-wrap">
+
+  <span class="page-tag">Бесплатно</span>
+  <h1>Диагностика</h1>
+  <p class="page-sub">Выберите то, что сейчас откликается</p>
+
+  <div class="tool-list">
+
+    <a href="test/index.html" class="tool-row">
+      <div>
+        <p class="tool-name">Что незаметно забирает у вас силы каждый день?</p>
+        <p class="tool-subtitle">Что-то не так, но сложно понять что именно</p>
+      </div>
+      <span class="tool-cta">Пройти тест</span>
+    </a>
+
+    <a href="library/index.html" class="tool-row">
+      <div>
+        <p class="tool-name">Что мешает вам жить так, как хочется?</p>
+        <p class="tool-subtitle">Понимаете, что проблема есть, и хотите конкретные шаги под вас</p>
+      </div>
+      <span class="tool-cta">Пройти диагностику</span>
+    </a>
+
+  </div>
+
+</main>
+
+<footer>
+  <p class="foot-meta"><a href="https://naumkinatati.ru/">← Вернуться на главную страницу</a></p>
+  <p class="foot-meta" style="margin-top: 12px;">© 2026 Татьяна Наумкина · <a href="mailto:naumkina.tati@gmail.com">naumkina.tati@gmail.com</a></p>
+  <p class="foot-meta"><a href="/privacy.html">Политика конфиденциальности</a></p>
+</footer>
+
+</body>
+</html>
