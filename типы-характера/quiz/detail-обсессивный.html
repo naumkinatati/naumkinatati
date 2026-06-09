@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="type" value="app" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Обсессивно-компульсивный тип личности — Татьяна Наумкина</title>
+  <meta name="description" content="Подробно про обсессивно-компульсивный тип характера по классификации Нэнси МакВильямс."/>
+  <link rel="stylesheet" href="../../fonts/fonts.css"/>
+  <link rel="stylesheet" href="../../fonts/fontawesome/css/all.min.css"/>
+  <style>
+    :root{--cream:#FAF7F2;--warm-white:#FFFDF9;--sand:#E8E0D4;--taupe:#C4B8A8;--dark:#2C2416;--text:#3D3328;--muted:#7A6E62;--accent:#C17F4A;--accent-light:#F0DCC8;--accent-dark:#A06535;--green:#4A7A5A;--green-light:#E6F0EB;--font-d:'Cormorant Garamond',Georgia,serif;--font-b:'DM Sans',system-ui,sans-serif;--mw:760px}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-b);font-size:1.1rem;color:var(--text);background:var(--warm-white);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:16px 32px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,253,249,.93);backdrop-filter:blur(14px);border-bottom:1px solid rgba(196,184,168,.22)}
+    .nav-logo{font-family:var(--font-d);font-size:1.4rem;font-weight:700;color:var(--dark)}
+    .nav-logo em{color:var(--accent);font-style:italic}
+    .nav-back{font-size:.95rem;color:var(--muted);display:flex;align-items:center;gap:6px;transition:color .2s}
+    .nav-back:hover{color:var(--accent)}
+    .page{max-width:var(--mw);margin:0 auto;padding:110px 32px 100px}
+    .page-hero{text-align:center;padding-bottom:56px;border-bottom:1px solid var(--sand);margin-bottom:56px}
+    .page-tag{display:inline-flex;align-items:center;gap:8px;background:var(--accent-light);color:var(--accent-dark);padding:6px 18px;border-radius:100px;font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px}
+    .page-hero h1{font-family:var(--font-d);font-size:clamp(2rem,5vw,3.2rem);color:var(--dark);line-height:1.15;margin-bottom:20px;font-weight:700}
+    .page-hero h1 em{color:var(--accent);font-style:italic}
+    .page-hero .lead{font-size:1.1rem;color:var(--muted);max-width:560px;margin:0 auto;line-height:1.8;font-weight:300}
+    .scores-block{margin-bottom:56px;padding-bottom:56px;border-bottom:1px solid var(--sand)}
+    .scores-block h2{font-family:var(--font-d);font-size:clamp(1.5rem,3vw,2rem);color:var(--dark);margin-bottom:24px;font-weight:600}
+    .score-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+    .score-name{font-size:.95rem;color:var(--muted);font-weight:500;min-width:200px;flex-shrink:0}
+    .score-bar-wrap{flex:1;height:7px;background:var(--sand);border-radius:100px;overflow:hidden}
+    .score-bar-fill{height:100%;background:var(--taupe);border-radius:100px}
+    .score-pct{font-size:.9rem;color:var(--muted);font-weight:500;min-width:38px;text-align:right}
+    .score-row.is-winner .score-name{color:var(--accent-dark);font-weight:700}
+    .score-row.is-winner .score-bar-fill{background:linear-gradient(90deg,var(--accent),var(--accent-dark))}
+    .score-row.is-winner .score-pct{color:var(--accent-dark);font-weight:700}
+    .content-block{margin-bottom:56px}
+    .content-block h2{font-family:var(--font-d);font-size:clamp(1.5rem,3vw,2rem);color:var(--dark);margin-bottom:18px;font-weight:600}
+    .main-desc{background:var(--cream);border-radius:20px;padding:36px;border-left:4px solid var(--accent);margin-bottom:32px}
+    .main-desc p{font-size:1.1rem;color:var(--text);line-height:1.9;font-weight:300;margin-bottom:16px}
+    .main-desc p:last-child{margin-bottom:0}
+    .secondary-block{margin-bottom:56px}
+    .secondary-block h2{font-family:var(--font-d);font-size:clamp(1.3rem,2.5vw,1.7rem);color:var(--dark);margin-bottom:18px;font-weight:600}
+    .secondary-cards{display:flex;flex-direction:column;gap:14px}
+    .secondary-card{padding:24px 28px;background:#fff;border:1.5px solid var(--sand);border-radius:16px}
+    .secondary-card-title{font-family:var(--font-d);font-size:1.2rem;color:var(--dark);font-weight:600;margin-bottom:10px}
+    .secondary-card p{font-size:1rem;color:var(--muted);line-height:1.75;font-weight:300}
+    .combine-block{margin-bottom:56px;padding:28px 32px;background:var(--cream);border-radius:20px;border-left:4px solid var(--accent)}
+    .combine-block h2{font-family:var(--font-d);font-size:clamp(1.3rem,2.5vw,1.7rem);color:var(--dark);margin-bottom:14px;font-weight:600}
+    .combine-para{font-size:1.05rem;color:var(--text);line-height:1.85;font-weight:300}
+    .cta-block{background:var(--dark);border-radius:28px;padding:48px 40px;text-align:center;margin-top:64px;position:relative;overflow:hidden}
+    .cta-block::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--green))}
+    .cta-block p.cta-tag{font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;color:var(--taupe);font-weight:600;margin-bottom:16px}
+    .cta-block h2{font-family:var(--font-d);font-size:clamp(1.8rem,3.5vw,2.6rem);color:#fff;line-height:1.18;margin-bottom:16px}
+    .cta-block h2 em{color:var(--accent);font-style:italic}
+    .cta-block .cta-sub{font-size:1.05rem;color:rgba(255,255,255,.5);margin-bottom:36px;line-height:1.75;font-weight:300}
+    .btn-cta{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;padding:18px 44px;border-radius:100px;font-family:var(--font-b);font-size:1.1rem;font-weight:600;transition:all .25s;box-shadow:0 4px 20px rgba(193,127,74,.35)}
+    .btn-cta:hover{background:var(--accent-dark);transform:translateY(-2px);box-shadow:0 8px 28px rgba(193,127,74,.45)}
+    .cta-retake{display:block;margin-top:18px;font-size:.9rem;color:rgba(255,255,255,.3);transition:color .2s}
+    .cta-retake:hover{color:rgba(255,255,255,.6)}
+    footer{background:#1A1208;padding:28px 40px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;margin-top:80px}
+    .foot-text{font-size:.9rem;color:rgba(255,255,255,.2)}
+    .foot-meta{font-size:.78rem;color:rgba(255,255,255,.18)}
+    @media(max-width:600px){
+      .page{padding:96px 20px 80px}
+      nav{padding:14px 20px}
+      .score-name{min-width:150px}
+      .cta-block{padding:36px 24px}
+      .main-desc{padding:24px}
+      .combine-block{padding:20px 22px}
+    }
+    /* SESSION CARD */
+    .session-card{background:var(--dark);border-radius:24px;padding:36px;color:#fff;margin-top:64px}
+    .session-card h3{font-family:var(--font-d);font-size:clamp(1.5rem,3vw,2.1rem);color:#fff;margin-bottom:20px;font-weight:700;line-height:1.2}
+    .session-card h3 em{color:var(--accent-light);font-style:italic}
+    .session-descs{display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
+    .s-desc{font-size:.97rem;color:rgba(255,255,255,.82);line-height:1.75;font-weight:300;padding-left:14px;border-left:2px solid rgba(193,127,74,.4)}
+    .session-meta{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+    .session-meta-item{display:flex;align-items:center;gap:8px;font-size:.9rem;color:rgba(255,255,255,.8)}
+    .session-meta-item i{color:var(--accent-light);font-size:.85rem}
+    .session-price{font-family:var(--font-d);font-size:2.2rem;font-weight:700;color:#fff;margin-bottom:6px}
+    .session-price span{font-size:1rem;font-weight:400;color:rgba(255,255,255,.45);margin-left:6px;font-family:var(--font-b)}
+    .session-payment-note{font-size:.88rem;color:rgba(255,255,255,.5);margin-bottom:28px;line-height:1.5}
+    .btn-session{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--accent);color:#fff;padding:18px 40px;border-radius:14px;font-family:var(--font-b);font-size:1.05rem;font-weight:600;cursor:pointer;border:none;transition:all .25s;box-shadow:0 4px 20px rgba(193,127,74,.4);text-decoration:none;width:100%}
+    .btn-session:hover{background:var(--accent-dark);transform:translateY(-2px);box-shadow:0 8px 28px rgba(193,127,74,.5)}
+    .session-note{font-size:.84rem;color:rgba(255,255,255,.4);margin-top:14px;line-height:1.65;text-align:center}  </style>
+<script src="../../js/consent.js"></script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Татьяна <em>Наумкина</em></div>
+  <a href="result-обсессивный.html" class="nav-back"><i class="fa-solid fa-arrow-left"></i> Назад к результату</a>
+</nav>
+
+<div class="page">
+
+  <div class="page-hero">
+    <div class="page-tag"><i class="fa-solid fa-book-open"></i> По МакВильямс</div>
+    <h1><em>Обсессивно-компульсивный</em> тип личности</h1>
+    <p class="lead">Как это называется в психологии, как устроено и что за этим стоит.</p>
+  </div>
+
+  <div class="scores-block">
+    <h2>Ваш профиль по МакВильямс</h2>
+    <div id="scoresList"></div>
+  </div>
+
+  <div class="content-block">
+    <h2>Обсессивный тип: подробно</h2>
+    <div class="main-desc">
+      <p>Тревога у вас была всегда. Только в детстве она была неструктурированной — просто ощущение, что что-то может пойти не так, что нельзя ошибиться, что нужно быть хорошим. Потом появился выход: если всё под контролем — ничего плохого не случится. И это работало. И продолжает работать. Только цена растёт.</p>
+      <p><strong>Злость не выходит — она превращается в правила.</strong> Злость есть, и её много. Но злиться на тех, от кого зависишь или кого любишь, — это значит поставить под угрозу отношения. Поэтому злость превращается в критику, в требования к себе, в «нужно сделать это правильно». Снаружи — человек, который держит всё под контролем. Внутри — подавленная злость, которая давит.</p>
+      <p><strong>Контроль снаружи — ответ на беспорядок внутри.</strong> Внутри вы часто гораздо более хаотичный и неуверенный, чем выглядите снаружи. Порядок снаружи — это ответ на беспорядок внутри. Если вокруг всё структурировано, внутренний шум становится чуть тише.</p>
+      <p><strong>Остановиться — страшно.</strong> Потому что если остановиться — непонятно, что там, под всем этим контролем. Самый редкий и самый ценный опыт — момент, когда можно просто быть. Без плана. Без правильности. Без оценки.</p>
+    </div>
+  </div>
+
+  <div class="secondary-block" id="secondaryBlock">
+    <h2>Сопутствующие типы</h2>
+    <div class="secondary-cards" id="secondaryCards"></div>
+  </div>
+
+  <div class="combine-block" id="combineBlock">
+    <h2>Как это работает вместе</h2>
+    <p class="combine-para" id="combinePara"></p>
+  </div>
+
+  <div class="session-card">
+    <h3><em>После первой встречи вместо каши в голове у вас будет понимание, что именно происходит и куда двигаться.</em> Конкретно вам.</h3>
+    <div class="session-descs">
+      <p class="s-desc">Мы возьмём один конкретный запрос, то, что сейчас давит сильнее всего, и поработаем с ним напрямую. Заранее формулировать ничего не нужно.</p>
+    </div>
+    <div class="session-meta">
+      <div class="session-meta-item"><i class="fa-solid fa-video"></i> Онлайн</div>
+      <div class="session-meta-item"><i class="fa-regular fa-clock"></i> 55 минут</div>
+      <div class="session-meta-item"><i class="fa-solid fa-lock"></i> Конфиденциально</div>
+    </div>
+    <div class="session-price">7 000 ₽ <span>за сессию</span></div>
+    <div class="session-payment-note">Оплата после того, как договоримся о дате и времени</div>
+    <a href="https://forms.yandex.ru/u/6a27f89490290299aa992732/" target="_blank" rel="noopener noreferrer" class="btn-session">Заполнить анкету и записаться <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+    <p class="session-note">Это займёт 5 минут. Я свяжусь с вами в течение дня.</p>
+    <a href="../index.html" class="cta-retake">Пройти тест заново</a>
+  </div>
+
+</div>
+
+<footer><div class="foot-text">© Татьяна Наумкина</div><p class="foot-meta"><a href="../privacy.html" style="color:rgba(255,255,255,.35)">Политика конфиденциальности</a> &nbsp;·&nbsp; <a href="../consent.html" style="color:rgba(255,255,255,.35)">Согласие на обработку данных</a></p></footer>
+
+<script>
+(function(){
+  var NAMES = {
+    S:  'Шизоидный',
+    N:  'Нарциссический',
+    P:  'Параноидный',
+    D:  'Депрессивный',
+    H:  'Истерический',
+    O:  'Обсессивно-компульсивный',
+    M:  'Мазохистический',
+    Ps: 'Психопатический'
+  };
+
+  var SHORT = {
+    S:  {title:'Шизоидный тип', text:'К потребности в контроле добавляется уход в голову и внутренний мир. Внешняя жизнь структурирована — но и внутренняя становится территорией аналитического одиночества. Контакт с реальностью — через мышление, не через ощущение.'},
+    N:  {title:'Нарциссический тип', text:'К «всё должно быть под контролем» добавляется «и я должен быть лучшим». Двойная нагрузка: делать правильно И быть особенным. Промахи переживаются особенно тяжело — это и нарушение правил, и удар по самооценке.'},
+    P:  {title:'Параноидный тип', text:'К тревоге добавляется подозрительность. Системы контроля становятся ещё жёстче — потому что не просто «что-то может пойти не так», но ещё и «кто-то может специально навредить». Правила — это и организация, и защита.'},
+    D:  {title:'Депрессивный тип', text:'К «нужно всё делать правильно» добавляется «я всё равно недостаточно стараюсь». Планка высокая — и всё равно найдётся за что себя покритиковать. Контроль не даёт покоя, а самокритика его усиливает.'},
+    H:  {title:'Истерический тип', text:'К структуре и правилам добавляется потребность в эмоциональном контакте и признании. Вы можете быть одновременно очень системным и неожиданно интенсивным. Когда правила нарушаются, реакция может быть яркой.'},
+    M:  {title:'Мазохистический тип', text:'К контролю добавляется привычка терпеть и откладывать своё. Контроль — это не только организация, но и сдерживание желаний. Хорошее откладывается на потом, страдание принимается как должное.'},
+    Ps: {title:'Психопатический тип', text:'К потребности в порядке добавляется установка на доминирование. Правила существуют не только для организации — они ещё и устанавливают иерархию. Контроль над ситуацией важнее, чем контакт с людьми.'}
+  };
+
+  var CONTRIB = {
+    S:  'структурированное аналитическое одиночество, контакт с миром через мышление',
+    N:  'двойная нагрузка — делать правильно и быть лучшим',
+    P:  'тревога плюс подозрительность, системы контроля как защита от угрозы',
+    D:  'высокая планка с постоянным «всё равно недостаточно стараюсь»',
+    H:  'система и правила с неожиданно яркими реакциями, когда правила нарушаются',
+    M:  'контроль как сдерживание желаний, страдание как привычное состояние',
+    Ps: 'правила как способ устанавливать иерархию и контролировать ситуацию'
+  };
+
+  var ORDER = ['S','N','P','D','H','O','M','Ps'];
+  var MAX = 12;
+  var stored = localStorage.getItem('quizScores');
+  if (!stored) return;
+  var scores = JSON.parse(stored);
+  var winner = localStorage.getItem('quizWinner');
+
+  var sorted = ORDER.slice().sort(function(a,b){ return scores[b]-scores[a]; });
+  var list = document.getElementById('scoresList');
+  sorted.forEach(function(b){
+    var pct = Math.max(0, Math.round(scores[b]/MAX*100));
+    var row = document.createElement('div');
+    row.className = 'score-row' + (b === winner ? ' is-winner' : '');
+    row.innerHTML = '<div class="score-name">' + NAMES[b] + '</div><div class="score-bar-wrap"><div class="score-bar-fill" style="width:' + pct + '%"></div></div><div class="score-pct">' + pct + '%</div>';
+    list.appendChild(row);
+  });
+
+  var others = sorted.filter(function(b){ return b !== winner; });
+  var top2 = others.slice(0, 2);
+  var cards = document.getElementById('secondaryCards');
+  if (top2.length === 0) {
+    document.getElementById('secondaryBlock').style.display = 'none';
+    document.getElementById('combineBlock').style.display = 'none';
+    return;
+  }
+  top2.forEach(function(b){
+    var d = SHORT[b];
+    var card = document.createElement('div');
+    card.className = 'secondary-card';
+    card.innerHTML = '<div class="secondary-card-title">' + d.title + '</div><p>' + d.text + '</p>';
+    cards.appendChild(card);
+  });
+
+  if (top2.length >= 2) {
+    var para = document.getElementById('combinePara');
+    if (para) para.textContent = 'Рядом с вашим ведущим паттерном живут ещё два: ' + CONTRIB[top2[0]] + ' и ' + CONTRIB[top2[1]] + '. Вместе они дают характерную для вас картину, где каждое из трёх начал усиливает другое.';
+  } else {
+    document.getElementById('combineBlock').style.display = 'none';
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="type" value="app" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ваш результат: всё для других — Татьяна Наумкина</title>
+  <meta name="description" content="Вы несёте больше, чем должны. Узнайте, как устроен ваш тип характера."/>
+  <link rel="stylesheet" href="../../fonts/fonts.css"/>
+  <link rel="stylesheet" href="../../fonts/fontawesome/css/all.min.css"/>
+  <style>
+    :root{--cream:#FAF7F2;--warm-white:#FFFDF9;--sand:#E8E0D4;--taupe:#C4B8A8;--dark:#2C2416;--text:#3D3328;--muted:#7A6E62;--accent:#C17F4A;--accent-light:#F0DCC8;--accent-dark:#A06535;--font-d:'Cormorant Garamond',Georgia,serif;--font-b:'DM Sans',system-ui,sans-serif;--mw:760px}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-b);font-size:1.1rem;color:var(--text);background:var(--warm-white);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:16px 32px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,253,249,.93);backdrop-filter:blur(14px);border-bottom:1px solid rgba(196,184,168,.22)}
+    .nav-logo{font-family:var(--font-d);font-size:1.4rem;font-weight:700;color:var(--dark)}
+    .nav-logo em{color:var(--accent);font-style:italic}
+    .nav-back{font-size:.95rem;color:var(--muted);display:flex;align-items:center;gap:6px;transition:color .2s}
+    .nav-back:hover{color:var(--accent)}
+
+    .page{max-width:var(--mw);margin:0 auto;padding:110px 32px 100px}
+
+    .result-hero{text-align:center;padding-bottom:56px;border-bottom:1px solid var(--sand);margin-bottom:56px}
+    .result-label{display:inline-flex;align-items:center;gap:8px;background:var(--accent-light);color:var(--accent-dark);padding:6px 18px;border-radius:100px;font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px}
+    .result-hero h1{font-family:var(--font-d);font-size:clamp(2rem,5vw,3.2rem);color:var(--dark);line-height:1.15;margin-bottom:20px;font-weight:700}
+    .result-hero h1 em{color:var(--accent);font-style:italic}
+    .result-hero .lead{font-size:1.2rem;color:var(--muted);max-width:580px;margin:0 auto;line-height:1.8;font-weight:300}
+
+    .scores-block{margin-bottom:56px;padding-bottom:56px;border-bottom:1px solid var(--sand)}
+    .scores-block h2{font-family:var(--font-d);font-size:clamp(1.5rem,3vw,2rem);color:var(--dark);margin-bottom:24px;font-weight:600}
+    .score-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+    .score-name{font-size:.95rem;color:var(--muted);font-weight:500;min-width:160px;flex-shrink:0}
+    .score-bar-wrap{flex:1;height:7px;background:var(--sand);border-radius:100px;overflow:hidden}
+    .score-bar-fill{height:100%;background:var(--taupe);border-radius:100px}
+    .score-pct{font-size:.9rem;color:var(--muted);font-weight:500;min-width:38px;text-align:right}
+    .score-row.is-winner .score-name{color:var(--accent-dark);font-weight:700}
+    .score-row.is-winner .score-bar-fill{background:linear-gradient(90deg,var(--accent),var(--accent-dark))}
+    .score-row.is-winner .score-pct{color:var(--accent-dark);font-weight:700}
+
+    .content-block{margin-bottom:48px}
+    .content-block h2{font-family:var(--font-d);font-size:clamp(1.5rem,3vw,2rem);color:var(--dark);margin-bottom:18px;font-weight:600}
+
+    .inner-text{background:var(--cream);border-radius:20px;padding:32px;border-left:4px solid var(--accent)}
+    .inner-text p{font-size:1.1rem;color:var(--text);line-height:1.85;font-weight:300;margin-bottom:14px}
+    .inner-text p:last-child{margin-bottom:0}
+
+    .life-list{display:flex;flex-direction:column;gap:10px}
+    .life-item{display:flex;align-items:flex-start;gap:14px;padding:16px 20px;background:var(--cream);border-radius:12px;font-size:1.05rem;color:var(--text);line-height:1.6}
+    .life-item-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex-shrink:0;margin-top:7px}
+
+    .social-list{display:flex;flex-direction:column;gap:10px}
+    .social-item{display:flex;align-items:flex-start;gap:14px;padding:16px 20px;background:#fff;border:1.5px solid var(--sand);border-radius:12px;font-size:1.05rem;color:var(--text);line-height:1.6}
+    .social-item-dot{width:8px;height:8px;border-radius:50%;border:2px solid var(--accent);flex-shrink:0;margin-top:7px}
+
+    .detail-cta{text-align:center;margin-top:64px;padding-top:56px;border-top:1px solid var(--sand)}
+    .detail-cta p{font-size:1rem;color:var(--muted);margin-bottom:24px;font-weight:300}
+    .btn-detail{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;padding:18px 44px;border-radius:100px;font-family:var(--font-b);font-size:1.1rem;font-weight:600;transition:all .25s;box-shadow:0 4px 20px rgba(193,127,74,.3)}
+    .btn-detail:hover{background:var(--accent-dark);transform:translateY(-2px);box-shadow:0 8px 28px rgba(193,127,74,.4)}
+
+    footer{background:#1A1208;padding:28px 40px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;margin-top:80px}
+    .foot-text{font-size:.9rem;color:rgba(255,255,255,.2)}
+    .foot-meta{font-size:.78rem;color:rgba(255,255,255,.18)}
+
+    @media(max-width:600px){
+      .page{padding:96px 20px 80px}
+      nav{padding:14px 20px}
+      .score-name{min-width:130px}
+    }
+  </style>
+<script src="../../js/consent.js"></script>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Татьяна <em>Наумкина</em></div>
+  <a href="../index.html" class="nav-back"><i class="fa-solid fa-arrow-left"></i> Пройти снова</a>
+</nav>
+
+<div class="page">
+
+  <div class="result-hero">
+    <div class="result-label"><i class="fa-solid fa-circle-dot"></i> Ваш результат</div>
+    <h1>Всё <em>для других</em></h1>
+    <p class="lead">Вы не грустный человек. Вы очень ответственный, очень заботливый, очень надёжный. И очень уставший. Потому что внутри живёт убеждение: если перестану быть нужным — меня бросят.</p>
+  </div>
+
+  <div class="scores-block">
+    <h2>Ваш профиль</h2>
+    <div id="scoresList"></div>
+  </div>
+
+  <div class="content-block">
+    <h2>Что происходит внутри</h2>
+    <div class="inner-text">
+      <p>Вы ответственный, заботливый и очень надёжный человек. Но при этом постоянно уставший, так от чего-то, что трудно назвать словами.</p>
+      <p>Очень часто вы чувствуете, как будто «со мной что-то не так», «я как-то недостаточно постарался», «да я и не заслуживаю пока этого». Оно всегда где-то рядом, как фоновый шум, к которому привыкаешь.</p>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <h2>В общении с людьми</h2>
+    <div class="social-list">
+      <div class="social-item"><div class="social-item-dot"></div>Вас воспринимают как надёжного человека, на которого можно положиться, и часто этим пользуются.</div>
+      <div class="social-item"><div class="social-item-dot"></div>К вам несут проблемы, потому что вы слушаете и не осуждаете. Но свои не несёте никуда.</div>
+      <div class="social-item"><div class="social-item-dot"></div>Близкие могут не знать, что вам бывает тяжело: вы не показываете. Обижаетесь, но молчите.</div>
+      <div class="social-item"><div class="social-item-dot"></div>В конфликте первым говорите «прости», даже когда виноваты не вы. Потому что мир важнее правды.</div>
+      <div class="social-item"><div class="social-item-dot"></div>Когда уступаете, говорите себе «ничего страшного», хотя внутри что-то сжимается.</div>
+    </div>
+  </div>
+
+  <div class="detail-cta">
+    <p>Хотите понять, как это устроено глубже?</p>
+    <a href="detail-депрессивный.html" class="btn-detail">Узнать подробнее про свой тип личности <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+
+</div>
+
+<footer><div class="foot-text">© Татьяна Наумкина</div><p class="foot-meta"><a href="../privacy.html" style="color:rgba(255,255,255,.35)">Политика конфиденциальности</a> &nbsp;·&nbsp; <a href="../consent.html" style="color:rgba(255,255,255,.35)">Согласие на обработку данных</a></p></footer>
+
+<script>
+(function(){
+  var NAMES = {
+    S:  'В своём мире',
+    N:  'Всё или ничего',
+    P:  'Всегда начеку',
+    D:  'Всё для других',
+    H:  'Жизнь на полную',
+    O:  'Только правильно',
+    M:  'Лишь бы не хуже',
+    Ps: 'Только сам'
+  };
+  var ORDER = ['S','N','P','D','H','O','M','Ps'];
+  var MAX = 12;
+  var stored = localStorage.getItem('quizScores');
+  if (!stored) return;
+  var scores = JSON.parse(stored);
+  var winner = localStorage.getItem('quizWinner');
+  var sorted = ORDER.slice().sort(function(a,b){ return scores[b]-scores[a]; });
+  var list = document.getElementById('scoresList');
+  sorted.forEach(function(b){
+    var pct = Math.max(0, Math.round(scores[b]/MAX*100));
+    var row = document.createElement('div');
+    row.className = 'score-row' + (b === winner ? ' is-winner' : '');
+    row.innerHTML = '<div class="score-name">' + NAMES[b] + '</div><div class="score-bar-wrap"><div class="score-bar-fill" style="width:' + pct + '%"></div></div><div class="score-pct">' + pct + '%</div>';
+    list.appendChild(row);
+  });
+})();
+</script>
+</body>
+</html>
