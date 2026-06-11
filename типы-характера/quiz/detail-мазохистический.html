@@ -1,0 +1,350 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="type" value="app" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мазохистический тип личности — Татьяна Наумкина</title>
+  <meta name="description" content="Подробно про мазохистический тип характера по классификации Нэнси МакВильямс."/>
+  <link rel="stylesheet" href="../../fonts/fonts.css"/>
+  <link rel="stylesheet" href="../../fonts/fontawesome/css/all.min.css"/>
+  <style>
+    :root{--cream:#FAF7F2;--warm-white:#FFFDF9;--sand:#E8E0D4;--taupe:#C4B8A8;--dark:#2C2416;--text:#3D3328;--muted:#7A6E62;--accent:#C17F4A;--accent-light:#F0DCC8;--accent-dark:#A06535;--green:#4A7A5A;--green-light:#E6F0EB;--font-d:'Cormorant Garamond',Georgia,serif;--font-b:'DM Sans',system-ui,sans-serif;--mw:760px}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-b);font-size:1.1rem;color:var(--text);background:var(--warm-white);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:16px 32px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,253,249,.93);backdrop-filter:blur(14px);border-bottom:1px solid rgba(196,184,168,.22)}
+    .nav-logo{font-family:var(--font-d);font-size:1.4rem;font-weight:700;color:var(--dark)}
+    .nav-logo em{color:var(--accent);font-style:italic}
+    .nav-back{font-size:.95rem;color:var(--muted);display:flex;align-items:center;gap:6px;transition:color .2s}
+    .nav-back:hover{color:var(--accent)}
+    .page{max-width:var(--mw);margin:0 auto;padding:110px 32px 100px}
+    .page-hero{text-align:center;padding-bottom:56px;border-bottom:1px solid var(--sand);margin-bottom:56px}
+    .page-tag{display:inline-flex;align-items:center;gap:8px;background:var(--accent-light);color:var(--accent-dark);padding:6px 18px;border-radius:100px;font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px}
+    .page-hero h1{font-family:var(--font-d);font-size:clamp(2rem,5vw,3.2rem);color:var(--dark);line-height:1.15;margin-bottom:20px;font-weight:700}
+    .page-hero h1 em{color:var(--accent);font-style:italic}
+    .page-hero .lead{font-size:1.1rem;color:var(--muted);max-width:560px;margin:0 auto;line-height:1.8;font-weight:300}
+    .scores-block{margin-bottom:56px;padding-bottom:56px;border-bottom:1px solid var(--sand)}
+    .scores-block h2{font-family:var(--font-d);font-size:clamp(1.5rem,3vw,2rem);color:var(--dark);margin-bottom:24px;font-weight:600}
+    .score-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+    .score-name{font-size:.95rem;color:var(--muted);font-weight:500;min-width:200px;flex-shrink:0}
+    .score-bar-wrap{flex:1;height:7px;background:var(--sand);border-radius:100px;overflow:hidden}
+    .score-bar-fill{height:100%;background:var(--taupe);border-radius:100px}
+    .score-pct{font-size:.9rem;color:var(--muted);font-weight:500;min-width:38px;text-align:right}
+    .score-row.is-winner .score-name{color:var(--accent-dark);font-weight:700}
+    .score-row.is-winner .score-bar-fill{background:linear-gradient(90deg,var(--accent),var(--accent-dark))}
+    .score-row.is-winner .score-pct{color:var(--accent-dark);font-weight:700}
+    .content-block{margin-bottom:56px}
+    .content-block h2{font-family:var(--font-d);font-size:clamp(1.5rem,3vw,2rem);color:var(--dark);margin-bottom:18px;font-weight:600}
+    .main-desc{background:var(--cream);border-radius:20px;padding:36px;border-left:4px solid var(--accent);margin-bottom:32px}
+    .main-desc p{font-size:1.1rem;color:var(--text);line-height:1.9;font-weight:300;margin-bottom:16px}
+    .main-desc p:last-child{margin-bottom:0}
+    .secondary-block{margin-bottom:56px}
+    .secondary-block h2{font-family:var(--font-d);font-size:clamp(1.3rem,2.5vw,1.7rem);color:var(--dark);margin-bottom:18px;font-weight:600}
+    .secondary-cards{display:flex;flex-direction:column;gap:14px}
+    .secondary-card{padding:24px 28px;background:#fff;border:1.5px solid var(--sand);border-radius:16px}
+    .secondary-card-title{font-family:var(--font-d);font-size:1.2rem;color:var(--dark);font-weight:600;margin-bottom:10px}
+    .secondary-card p{font-size:1rem;color:var(--muted);line-height:1.75;font-weight:300}
+    .combine-block{margin-bottom:56px;padding:28px 32px;background:var(--cream);border-radius:20px;border-left:4px solid var(--accent)}
+    .combine-block h2{font-family:var(--font-d);font-size:clamp(1.3rem,2.5vw,1.7rem);color:var(--dark);margin-bottom:14px;font-weight:600}
+    .combine-para{font-size:1.05rem;color:var(--text);line-height:1.85;font-weight:300}
+    .cta-block{background:var(--dark);border-radius:28px;padding:48px 40px;text-align:center;margin-top:64px;position:relative;overflow:hidden}
+    .cta-block::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--green))}
+    .cta-block p.cta-tag{font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;color:var(--taupe);font-weight:600;margin-bottom:16px}
+    .cta-block h2{font-family:var(--font-d);font-size:clamp(1.8rem,3.5vw,2.6rem);color:#fff;line-height:1.18;margin-bottom:16px}
+    .cta-block h2 em{color:var(--accent);font-style:italic}
+    .cta-block .cta-sub{font-size:1.05rem;color:rgba(255,255,255,.5);margin-bottom:36px;line-height:1.75;font-weight:300}
+    .btn-cta{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;padding:18px 44px;border-radius:100px;font-family:var(--font-b);font-size:1.1rem;font-weight:600;transition:all .25s;box-shadow:0 4px 20px rgba(193,127,74,.35)}
+    .btn-cta:hover{background:var(--accent-dark);transform:translateY(-2px);box-shadow:0 8px 28px rgba(193,127,74,.45)}
+    .cta-retake{display:block;margin-top:18px;font-size:.9rem;color:rgba(255,255,255,.3);transition:color .2s}
+    .cta-retake:hover{color:rgba(255,255,255,.6)}
+    footer{background:#1A1208;padding:28px 40px;display:flex;flex-direction:column;align-items:center;gap:8px;text-align:center;margin-top:80px}
+    .foot-text{font-size:.9rem;color:rgba(255,255,255,.2)}
+    .foot-meta{font-size:.78rem;color:rgba(255,255,255,.18)}
+    @media(max-width:600px){
+      .page{padding:96px 20px 80px}
+      nav{padding:14px 20px}
+      .score-name{min-width:150px}
+      .cta-block{padding:36px 24px}
+      .main-desc{padding:24px}
+      .combine-block{padding:20px 22px}
+    }
+    /* SESSION CARD */
+    .session-card{background:var(--dark);border-radius:24px;padding:36px;color:#fff;margin-top:64px}
+    .session-card h3{font-family:var(--font-d);font-size:clamp(1.5rem,3vw,2.1rem);color:#fff;margin-bottom:20px;font-weight:700;line-height:1.2}
+    .session-card h3 em{color:var(--accent-light);font-style:italic}
+    .session-descs{display:flex;flex-direction:column;gap:12px;margin-bottom:28px}
+    .s-desc{font-size:.97rem;color:rgba(255,255,255,.82);line-height:1.75;font-weight:300;padding-left:14px;border-left:2px solid rgba(193,127,74,.4)}
+    .session-meta{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+    .session-meta-item{display:flex;align-items:center;gap:8px;font-size:.9rem;color:rgba(255,255,255,.8)}
+    .session-meta-item i{color:var(--accent-light);font-size:.85rem}
+    .session-price{font-family:var(--font-d);font-size:2.2rem;font-weight:700;color:#fff;margin-bottom:6px}
+    .session-price span{font-size:1rem;font-weight:400;color:rgba(255,255,255,.45);margin-left:6px;font-family:var(--font-b)}
+    .session-payment-note{font-size:.88rem;color:rgba(255,255,255,.5);margin-bottom:28px;line-height:1.5}
+    .btn-session{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--accent);color:#fff;padding:18px 40px;border-radius:14px;font-family:var(--font-b);font-size:1.05rem;font-weight:600;cursor:pointer;border:none;transition:all .25s;box-shadow:0 4px 20px rgba(193,127,74,.4);text-decoration:none;width:100%}
+    .btn-session:hover{background:var(--accent-dark);transform:translateY(-2px);box-shadow:0 8px 28px rgba(193,127,74,.5)}
+    .session-note{font-size:.84rem;color:rgba(255,255,255,.4);margin-top:14px;line-height:1.65;text-align:center}
+/* ── FORM MODAL ── */
+.form-modal-overlay{display:none;position:fixed;inset:0;z-index:1000;background:var(--warm-white);overflow-y:auto}
+.form-modal-overlay.open{display:block}
+.form-modal-header{position:sticky;top:0;z-index:1;display:flex;align-items:center;justify-content:space-between;padding:14px 24px;background:var(--warm-white);border-bottom:1px solid var(--sand)}
+.form-modal-close{width:40px;height:40px;border-radius:50%;background:var(--cream);border:1px solid var(--sand);color:var(--muted);font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s;flex-shrink:0}
+.form-modal-close:hover{border-color:var(--accent);color:var(--accent)}
+.form-modal-body{max-width:700px;margin:0 auto;padding:32px 24px}
+.form-step-info{font-family:var(--font-b);font-size:.88rem;color:var(--muted)}
+.f-progress{position:sticky;top:57px;z-index:1;height:4px;background:var(--sand)}
+.f-progress-bar{height:100%;background:var(--accent);transition:width .4s ease}
+.f-step{max-width:600px;margin:0 auto;padding:40px 24px 64px;display:block}
+.f-step.f-hidden{display:none}
+.f-step h3{font-family:var(--font-d);font-size:2rem;font-weight:700;color:var(--dark);margin:0 0 6px}
+.f-step-sub{color:var(--muted);font-size:.9rem;margin:0 0 32px}
+.f-field{margin-bottom:28px}
+.f-field label{display:block;font-weight:600;color:var(--dark);margin-bottom:8px;font-size:.95rem}
+.f-field-note{font-weight:400;color:var(--muted);font-size:.85rem;margin-left:6px}
+.f-field-hint{color:var(--muted);font-size:.88rem;margin:-4px 0 10px;line-height:1.5}
+.f-field input,.f-field textarea{width:100%;box-sizing:border-box;border:1.5px solid var(--sand);border-radius:12px;padding:14px 16px;font-family:var(--font-b);font-size:.95rem;color:var(--dark);background:var(--warm-white);outline:none;transition:border-color .2s;resize:vertical}
+.f-field input:focus,.f-field textarea:focus{border-color:var(--accent)}
+.f-field input.f-err,.f-field textarea.f-err{border-color:#d95b5b}
+.f-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.f-chip{padding:10px 22px;border-radius:50px;border:1.5px solid var(--sand);background:var(--warm-white);font-family:var(--font-b);font-size:.9rem;color:var(--dark);cursor:pointer;transition:all .2s}
+.f-chip:hover{border-color:var(--accent)}
+.f-chip.sel{background:var(--accent);border-color:var(--accent);color:#fff}
+.f-cards{display:grid;gap:10px;margin-top:4px}
+.f-card{width:100%;text-align:left;padding:14px 18px;border-radius:14px;border:1.5px solid var(--sand);background:var(--warm-white);font-family:var(--font-b);font-size:.9rem;color:var(--dark);cursor:pointer;transition:all .2s;line-height:1.4}
+.f-card:hover{border-color:var(--accent);background:var(--cream)}
+.f-card.sel{border-color:var(--accent);background:var(--accent-light)}
+.f-consents{margin:24px 0}
+.f-consent{display:flex;align-items:flex-start;gap:10px;margin-bottom:14px;cursor:pointer}
+.f-consent input{margin-top:3px;flex-shrink:0;accent-color:var(--accent);width:16px;height:16px;cursor:pointer}
+.f-consent span{font-size:.88rem;color:var(--muted);line-height:1.5}
+.f-consent a{color:var(--accent)}
+.f-nav{display:flex;justify-content:space-between;align-items:center;margin-top:32px;gap:12px}
+.f-nav-r{display:flex;justify-content:flex-end}
+.btn-f{background:var(--accent);color:#fff;padding:14px 36px;border-radius:14px;font-family:var(--font-b);font-size:1rem;font-weight:600;border:none;cursor:pointer;transition:background .2s}
+.btn-f:hover{background:var(--accent-dark)}
+.btn-f:disabled{background:var(--sand);color:var(--muted);cursor:not-allowed}
+.btn-f-back{background:transparent;color:var(--muted);padding:14px 20px;border-radius:14px;font-family:var(--font-b);font-size:1rem;border:1.5px solid var(--sand);cursor:pointer;transition:all .2s}
+.btn-f-back:hover{border-color:var(--accent);color:var(--accent)}
+.f-intro-p{color:var(--muted);line-height:1.7;margin-bottom:12px}
+.f-done-check{width:60px;height:60px;border-radius:50%;background:var(--accent-light);color:var(--accent);font-size:1.4rem;display:flex;align-items:center;justify-content:center;margin:0 0 24px}
+@keyframes fShake{0%,100%{transform:translateX(0)}25%{transform:translateX(-6px)}75%{transform:translateX(6px)}}
+</style>
+<script src="../../js/consent.js"></script>
+</head>
+<body>
+
+<nav>
+  <a href="../../index.html" class="nav-logo">Татьяна Наумкина — психолог</a>
+  <div style="display:flex;align-items:center;gap:20px">
+    <a href="result-мазохистический.html" class="nav-back"><i class="fa-solid fa-arrow-left"></i> Назад к результату</a>
+    <a href="../../index.html" class="nav-back">Перейти на главную</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <div class="page-hero">
+    <div class="page-tag"><i class="fa-solid fa-book-open"></i> По МакВильямс</div>
+    <h1><em>Мазохистический</em> тип личности</h1>
+    <p class="lead">Как это называется в психологии, как устроено и что за этим стоит.</p>
+  </div>
+
+  <div class="scores-block">
+    <h2>Ваш профиль по МакВильямс</h2>
+    <div id="scoresList"></div>
+  </div>
+
+  <div class="content-block">
+    <h2>Мазохистический тип: подробно</h2>
+    <div class="main-desc">
+      <p>Страдание — это не то, что вы выбираете. Это то, что стало знакомым и безопасным. Когда-то давно выяснилось: проявил радость — получил по рукам. Захотел — получил отказ. Попытался злиться — был подавлен. И постепенно выработалась стратегия: не хотеть слишком явно, не проявляться слишком ярко. Страдать молча — это безопасно.</p>
+      <p><strong>Страдание стало языком близости.</strong> «Если мне больно — значит, я стараюсь, значит, я хороший, значит, меня не бросят». А благополучие — угрозой потерять эту связь. Поэтому когда что-то хорошее случается, поднимается тревога: «сейчас это закончится», «я не заслуживаю», «это ловушка».</p>
+      <p><strong>Злость разворачивается внутрь.</strong> Злость у вас есть — большая, застарелая. Но она не идёт наружу. «Я плохой», «мне всегда не везёт», «у меня ничего не получается». Это не правда о себе. Это злость, которой некуда деваться. Единственный вид агрессии, который проходит через контроль, — нытьё. Жалуетесь — но не меняетесь. Страдаете — но не уходите.</p>
+      <p><strong>Хотеть — значит рисковать.</strong> В отношениях — зависимость и смешанное послание: «я нуждаюсь в тебе, но ты всё равно меня разочаруешь». Партнёры изматываются. Вы тоже изматываетесь. Но не знаете, как по-другому — потому что хотеть и получать всё ещё кажется опасным. Самый странный и самый важный опыт — когда что-то хорошее случается и внутри нет катастрофы.</p>
+    </div>
+  </div>
+
+  <div class="secondary-block" id="secondaryBlock">
+    <h2>Сопутствующие типы</h2>
+    <div class="secondary-cards" id="secondaryCards"></div>
+  </div>
+
+  <div class="combine-block" id="combineBlock">
+    <h2>Как это работает вместе</h2>
+    <p class="combine-para" id="combinePara"></p>
+  </div>
+
+  <div class="session-card">
+    <h3><em>После первой встречи вместо каши в голове у вас будет понимание, что именно происходит и куда двигаться.</em> Конкретно вам.</h3>
+    <div class="session-descs">
+      <p class="s-desc">Мы возьмём один конкретный запрос, то, что сейчас давит сильнее всего, и поработаем с ним напрямую. Заранее формулировать ничего не нужно.</p>
+    </div>
+    <div class="session-meta">
+      <div class="session-meta-item"><i class="fa-solid fa-video"></i> Онлайн</div>
+      <div class="session-meta-item"><i class="fa-regular fa-clock"></i> 55 минут</div>
+      <div class="session-meta-item"><i class="fa-solid fa-lock"></i> Конфиденциально</div>
+    </div>
+    <div class="session-price">4 000 ₽ <span>за сессию</span></div>
+    <div class="session-payment-note">Оплата после того, как договоримся о дате и времени</div>
+    <button onclick="openFormModal()" class="btn-session">Заполнить анкету и записаться</button>
+    <p class="session-note">Это займёт 5 минут. Я свяжусь с вами в течение дня.</p>
+    <a href="../index.html" class="cta-retake">Пройти тест заново</a>
+  </div>
+
+</div>
+
+<footer><div class="foot-text">© Татьяна Наумкина</div><p class="foot-meta"><a href="../privacy.html" style="color:rgba(255,255,255,.35)">Политика конфиденциальности</a> &nbsp;·&nbsp; <a href="../consent.html" style="color:rgba(255,255,255,.35)">Согласие на обработку данных</a></p></footer>
+
+<script>
+(function(){
+  var NAMES = {
+    S:  'Шизоидный',
+    N:  'Нарциссический',
+    P:  'Параноидный',
+    D:  'Депрессивный',
+    H:  'Истерический',
+    O:  'Обсессивно-компульсивный',
+    M:  'Мазохистический',
+    Ps: 'Психопатический'
+  };
+
+  var SHORT = {
+    S:  {title:'Шизоидный тип', text:'К привычке страдать молча добавляется уход в себя. Одиночество не просто привычно — оно правильное, заслуженное. Контакт пугает, потому что за ним может последовать отказ или счастье — и оба одинаково страшны.'},
+    N:  {title:'Нарциссический тип', text:'К внутреннему страданию добавляется острая чувствительность к оценке. Снаружи — страдание. Внутри — ещё и стыд за само страдание. «Я не только плохой — я ещё и реагирую неправильно».'},
+    P:  {title:'Параноидный тип', text:'К привычке терпеть добавляется настороженность. Вы остаётесь там, где больно — и при этом постоянно ожидаете подвоха. Терпите, но не доверяете.'},
+    D:  {title:'Депрессивный тип', text:'К страху быть наказанным за желания добавляется страх быть брошенным. Оба страха работают вместе: и хотеть нельзя, и нуждаться нельзя. Страдание становится единственной безопасной формой связи.'},
+    H:  {title:'Истерический тип', text:'К страданию добавляется потребность, чтобы это заметили. Молчаливое страдание соседствует с яркими проявлениями. За жалобами — не просто боль, но и призыв: увидьте меня.'},
+    O:  {title:'Обсессивно-компульсивный тип', text:'К привычке терпеть добавляется контроль и правила. Страдание упорядочивается: есть правила о том, сколько можно терпеть и в каком порядке. Злость ещё глубже закапывается под структуру.'},
+    Ps: {title:'Психопатический тип', text:'К уязвимости добавляется жёсткая независимость. Внутри — привычное страдание и зависимость, снаружи — поза «мне никто не нужен». Это очень знакомая, очень болезненная комбинация.'}
+  };
+
+  var CONTRIB = {
+    S:  'страдание как правильное и заслуженное состояние, одиночество как норма',
+    N:  'стыд за само страдание поверх страдания',
+    P:  'терпеть и не доверять одновременно',
+    D:  'ни хотеть нельзя, ни нуждаться — страдание как единственная безопасная форма связи',
+    H:  'молчаливое страдание с яркими призывами «увидьте меня»',
+    O:  'страдание упорядоченное, злость закопанная под структуру',
+    Ps: 'внутренняя зависимость за внешней позой «мне никто не нужен»'
+  };
+
+  var ORDER = ['S','N','P','D','H','O','M','Ps'];
+  var MAX = 12;
+  var stored = localStorage.getItem('quizScores');
+  if (!stored) return;
+  var scores = JSON.parse(stored);
+  var winner = localStorage.getItem('quizWinner');
+
+  var sorted = ORDER.slice().sort(function(a,b){ return scores[b]-scores[a]; });
+  var list = document.getElementById('scoresList');
+  sorted.forEach(function(b){
+    var pct = Math.max(0, Math.round(scores[b]/MAX*100));
+    var row = document.createElement('div');
+    row.className = 'score-row' + (b === winner ? ' is-winner' : '');
+    row.innerHTML = '<div class="score-name">' + NAMES[b] + '</div><div class="score-bar-wrap"><div class="score-bar-fill" style="width:' + pct + '%"></div></div><div class="score-pct">' + pct + '%</div>';
+    list.appendChild(row);
+  });
+
+  var others = sorted.filter(function(b){ return b !== winner; });
+  var top2 = others.slice(0, 2);
+  var cards = document.getElementById('secondaryCards');
+  if (top2.length === 0) {
+    document.getElementById('secondaryBlock').style.display = 'none';
+    document.getElementById('combineBlock').style.display = 'none';
+    return;
+  }
+  top2.forEach(function(b){
+    var d = SHORT[b];
+    var card = document.createElement('div');
+    card.className = 'secondary-card';
+    card.innerHTML = '<div class="secondary-card-title">' + d.title + '</div><p>' + d.text + '</p>';
+    cards.appendChild(card);
+  });
+
+  if (top2.length >= 2) {
+    var para = document.getElementById('combinePara');
+    if (para) para.textContent = 'Рядом с вашим ведущим паттерном живут ещё два: ' + CONTRIB[top2[0]] + ' и ' + CONTRIB[top2[1]] + '. Вместе они дают характерную для вас картину, где каждое из трёх начал усиливает другое.';
+  } else {
+    document.getElementById('combineBlock').style.display = 'none';
+  }
+})();
+</script>
+
+<!-- FORM MODAL -->
+<div class="form-modal-overlay" id="formModal">
+  <div class="form-modal-header">
+    <span id="fStepInfo" class="form-step-info"></span>
+    <button class="form-modal-close" onclick="closeFormModal()" aria-label="Закрыть">✕</button>
+  </div>
+  <div class="f-progress" id="fProgressWrap" style="display:none"><div class="f-progress-bar" id="fProgressBar"></div></div>
+  <div class="form-modal-body" style="padding:0">
+    <div class="f-step" id="fStep0">
+      <h3 style="margin-bottom:20px">Анкета для<br>первой встречи</h3>
+      <p class="f-intro-p">Нужна мне, чтобы я пришла на сессию подготовленной. Не тратила ваше время на базовые вопросы, а сразу понимала, с чем мы имеем дело.</p>
+      <p class="f-intro-p">Заполнение занимает 5–7 минут. После того как я изучу анкету, свяжусь с вами, чтобы договориться о времени встречи.</p>
+      <p class="f-intro-p" style="margin-bottom:36px">Всё, что вы здесь напишете, останется конфиденциальным.</p>
+      <div class="f-nav-r"><button class="btn-f" onclick="fGoTo(1)">Заполнить анкету</button></div>
+    </div>
+    <div class="f-step f-hidden" id="fStep1">
+      <h3>О вас</h3>
+      <p class="f-step-sub">Шаг 1 из 3</p>
+      <div class="f-field"><label for="fName">Как вас зовут?</label><input id="fName" type="text" placeholder="Ваше имя"></div>
+      <div class="f-field"><label for="fContact">Как с вами связаться?</label><textarea id="fContact" rows="3" placeholder="Номер телефона или ник через @ — и напишите, где удобнее: телеграм, вк, max…"></textarea></div>
+      <div class="f-field"><label>Сколько вам лет?</label><div class="f-chips" id="fAgeChips"><button class="f-chip" data-val="18–24" type="button">18–24</button><button class="f-chip" data-val="25–29" type="button">25–29</button><button class="f-chip" data-val="30–35" type="button">30–35</button><button class="f-chip" data-val="36–40" type="button">36–40</button><button class="f-chip" data-val="40+" type="button">40+</button></div></div>
+      <div class="f-field"><label for="fTimezone">Часовой пояс</label><input id="fTimezone" type="text" placeholder="Например: МСК, Екатеринбург, +5"></div>
+      <div class="f-nav"><span></span><button class="btn-f" onclick="fNext(1)">Далее</button></div>
+    </div>
+    <div class="f-step f-hidden" id="fStep2">
+      <h3>Ваш запрос</h3>
+      <p class="f-step-sub">Шаг 2 из 3</p>
+      <div class="f-field">
+        <label>Какие сложности сейчас откликаются больше всего?<span class="f-field-note">можно несколько</span></label>
+        <div class="f-cards" id="fDiffCards">
+          <button class="f-card" data-val="Всё время в тревоге или напряжении, не могу расслабиться" type="button">Всё время в тревоге или напряжении, не могу расслабиться</button>
+          <button class="f-card" data-val="Погряз(ла) в делах, не чувствую удовольствия от жизни" type="button">Погряз(ла) в делах, не чувствую удовольствия от жизни</button>
+          <button class="f-card" data-val="Постоянно сомневаюсь: туда ли я иду, то ли делаю" type="button">Постоянно сомневаюсь: туда ли я иду, то ли делаю</button>
+          <button class="f-card" data-val="Трудно быть в отношениях: или сливаюсь, или отстраняюсь" type="button">Трудно быть в отношениях: или сливаюсь, или отстраняюсь</button>
+          <button class="f-card" data-val="Не умею отстаивать своё мнение, отказывать, брать желаемое" type="button">Не умею отстаивать своё мнение, отказывать, брать желаемое</button>
+          <button class="f-card" data-val="Боюсь конфликтов, не могу говорить о своих чувствах" type="button">Боюсь конфликтов, не могу говорить о своих чувствах</button>
+          <button class="f-card" data-val="Чувствую себя одиноко, даже рядом с близкими" type="button">Чувствую себя одиноко, даже рядом с близкими</button>
+          <button class="f-card" data-val="Другое" type="button">Другое</button>
+        </div>
+      </div>
+      <div class="f-field"><label for="fRequest">Можете подробнее рассказать, с чем хотите поработать?</label><p class="f-field-hint">В свободной форме — как получается. Это поможет мне почувствовать ваш запрос до встречи.</p><textarea id="fRequest" rows="5" placeholder="Напишите здесь…"></textarea></div>
+      <div class="f-nav"><button class="btn-f-back" onclick="fGoTo(1)">← Назад</button><button class="btn-f" onclick="fNext(2)">Далее</button></div>
+    </div>
+    <div class="f-step f-hidden" id="fStep3">
+      <h3>Важные детали</h3>
+      <p class="f-step-sub">Шаг 3 из 3</p>
+      <div class="f-field"><label for="fDetails">Есть ли у вас особенности, о которых мне важно знать?</label><p class="f-field-hint">Например: психиатрические диагнозы, ПТСР, приём антидепрессантов, сложности в контакте с телом или эмоциями.</p><textarea id="fDetails" rows="5" placeholder="Если есть — напишите. Если нет — можно оставить пустым."></textarea></div>
+      <div class="f-consents">
+        <label class="f-consent"><input type="checkbox" id="fC1"><span>Я принимаю условия <a href="/offer.html" target="_blank">Публичной оферты</a> и подтверждаю, что мне исполнилось 18 лет</span></label>
+        <label class="f-consent"><input type="checkbox" id="fC2"><span>Я даю <a href="/consent.html" target="_blank">Согласие на обработку персональных данных</a> и ознакомлен(а) с <a href="/privacy.html" target="_blank">Политикой конфиденциальности</a></span></label>
+        <label class="f-consent"><input type="checkbox" id="fC3"><span>Я согласен(на) на получение рекламно-информационных рассылок</span></label>
+      </div>
+      <div class="f-nav"><button class="btn-f-back" onclick="fGoTo(2)">← Назад</button><button class="btn-f" id="fSubmitBtn" onclick="fSubmit()">Отправить анкету</button></div>
+    </div>
+    <div class="f-step f-hidden" id="fStepDone">
+      <div class="f-done-check">✓</div>
+      <h3 style="margin-bottom:16px">Спасибо за<br>ваши ответы</h3>
+      <p class="f-intro-p">Всё, что вы написали, останется между нами.</p>
+      <p class="f-intro-p" style="margin-bottom:36px">Я свяжусь с вами в течение 1–2 дней, чтобы пообщаться и предложить время для первой встречи.</p>
+      <div class="f-nav-r"><button class="btn-f" onclick="closeFormModal()">Закрыть</button></div>
+    </div>
+  </div>
+</div>
+
+<script>
+function openFormModal(){document.getElementById('formModal').classList.add('open');document.body.style.overflow='hidden';}
+function closeFormModal(){document.getElementById('formModal').classList.remove('open');document.body.style.overflow='';setTimeout(fReset,300);}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeFormModal();});
+var fData={};
+function fGoTo(step){document.querySelectorAll('.f-step').forEach(function(s){s.classList.add('f-hidden')});var el=step==='done'?document.getElementById('fStepDone'):document.getElementById('fStep'+step);el.classList.remove('f-hidden');var pw=document.getElementById('fProgressWrap');var pb=document.getElementById('fProgressBar');var si=document.getElementById('fStepInfo');if(typeof step==='number'&&step>=1&&step<=3){pw.style.display='block';pb.style.width=(step/3*100)+'%';si.textContent='Шаг '+step+' из 3';}else{pw.style.display='none';si.textContent='';}document.getElementById('formModal').scrollTop=0;}
+function fNext(step){if(step===1){var name=document.getElementById('fName').value.trim();var contact=document.getElementById('fContact').value.trim();var ageEl=document.querySelector('#fAgeChips .f-chip.sel');var ok=true;if(!name){document.getElementById('fName').classList.add('f-err');ok=false;}if(!contact){document.getElementById('fContact').classList.add('f-err');ok=false;}if(!ageEl){var ac=document.getElementById('fAgeChips');ac.style.animation='fShake .4s';setTimeout(function(){ac.style.animation=''},400);ok=false;}if(!ok)return;fData.name=name;fData.contact=contact;fData.age=ageEl.dataset.val;fData.timezone=document.getElementById('fTimezone').value.trim()||'не указан';fGoTo(2);}else if(step===2){var sel=document.querySelectorAll('#fDiffCards .f-card.sel');if(!sel.length){var dc=document.getElementById('fDiffCards');dc.style.animation='fShake .4s';setTimeout(function(){dc.style.animation=''},400);return;}fData.difficulties=Array.from(sel).map(function(c){return c.dataset.val}).join('; ');fData.request=document.getElementById('fRequest').value.trim()||'—';fGoTo(3);}}
+function fSubmit(){var c1=document.getElementById('fC1').checked;var c2=document.getElementById('fC2').checked;if(!c1||!c2){var cw=document.querySelector('.f-consents');cw.style.animation='fShake .4s';setTimeout(function(){cw.style.animation=''},400);return;}fData.details=document.getElementById('fDetails').value.trim()||'—';fData.marketing=document.getElementById('fC3').checked?'Да':'Нет';var btn=document.getElementById('fSubmitBtn');btn.disabled=true;btn.textContent='Отправляем…';fetch('https://functions.yandexcloud.net/d4eguhk3vaci55u1b2q2',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({from_name:fData.name,contact:fData.contact,age:fData.age,timezone:fData.timezone,difficulties:fData.difficulties,request:fData.request,details:fData.details,marketing:fData.marketing})}).then(function(res){return res.json();}).then(function(data){if(data.ok){fGoTo('done');}else{throw new Error(data.error);}}).catch(function(err){btn.disabled=false;btn.textContent='Отправить анкету';alert('Не удалось отправить. Напишите мне напрямую в телеграм или на почту.');console.error('Ошибка:',err);});}
+function fReset(){fData={};['fName','fContact','fTimezone','fRequest','fDetails'].forEach(function(id){var el=document.getElementById(id);if(el){el.value='';el.classList.remove('f-err');}});document.querySelectorAll('#fAgeChips .f-chip').forEach(function(c){c.classList.remove('sel')});document.querySelectorAll('#fDiffCards .f-card').forEach(function(c){c.classList.remove('sel')});['fC1','fC2','fC3'].forEach(function(id){document.getElementById(id).checked=false;});var btn=document.getElementById('fSubmitBtn');btn.disabled=false;btn.textContent='Отправить анкету';fGoTo(0);}
+document.addEventListener('click',function(e){var chip=e.target.closest('#fAgeChips .f-chip');if(chip){document.querySelectorAll('#fAgeChips .f-chip').forEach(function(c){c.classList.remove('sel')});chip.classList.add('sel');}var card=e.target.closest('#fDiffCards .f-card');if(card){card.classList.toggle('sel');}var inp=e.target.closest('.f-field input,.f-field textarea');if(inp){inp.classList.remove('f-err');}});
+</script>
+</body>
+</html>
