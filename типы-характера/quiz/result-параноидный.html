@@ -1,0 +1,142 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="type" value="app" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ваш результат: параноидный тип характера — Татьяна Наумкина</title>
+  <meta name="description" content="Вы всегда в режиме боевой готовности. Узнайте, как устроен параноидный тип характера."/>
+  <link rel="icon" type="image/png" href="../../img/favicon.png"/>
+  <link rel="icon" href="../../img/favicon.svg" type="image/svg+xml"/>
+  <link rel="stylesheet" href="../../fonts/fonts.css"/>
+  <link rel="stylesheet" href="../../fonts/fontawesome/css/all.min.css"/>
+  <style>
+    :root{--cream:#FAF7F2;--warm-white:#FFFDF9;--sand:#E8E0D4;--taupe:#C4B8A8;--dark:#2C2416;--text:#3D3328;--muted:#7A6E62;--accent:#C17F4A;--accent-light:#F0DCC8;--accent-dark:#A06535;--green:#4A7A5A;--green-light:#E6F0EB;--font-d:'Cormorant Garamond',Georgia,serif;--font-b:'DM Sans',system-ui,sans-serif;--mw:760px}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:var(--font-b);font-size:1.1rem;color:var(--text);background:var(--warm-white);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:16px 32px;display:flex;justify-content:space-between;align-items:center;background:rgba(255,253,249,.93);backdrop-filter:blur(14px);border-bottom:1px solid rgba(196,184,168,.22)}
+    .nav-logo{font-family:var(--font-d);font-size:1.3rem;font-weight:700;color:var(--dark)}
+    .nav-logo em{color:var(--accent);font-style:italic}
+    .nav-back{font-size:.95rem;color:var(--muted);display:flex;align-items:center;gap:6px;transition:color .2s}
+    .nav-back:hover{color:var(--accent)}
+    .page{max-width:var(--mw);margin:0 auto;padding:110px 32px 100px}
+    .result-hero{text-align:center;padding-bottom:56px;border-bottom:1px solid var(--sand);margin-bottom:56px}
+    .result-label{display:inline-flex;align-items:center;gap:8px;background:var(--accent-light);color:var(--accent-dark);padding:6px 18px;border-radius:100px;font-size:.82rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px}
+    .result-hero h1{font-family:var(--font-d);font-size:clamp(2rem,5vw,3.2rem);color:var(--dark);line-height:1.15;margin-bottom:20px;font-weight:700}
+    .result-hero h1 em{color:var(--accent);font-style:italic}
+    .result-hero .lead{font-size:1.2rem;color:var(--muted);max-width:580px;margin:0 auto;line-height:1.8;font-weight:300}
+    .result-block{margin-bottom:48px}
+    .result-block h2{font-family:var(--font-d);font-size:clamp(1.5rem,3vw,2rem);color:var(--dark);margin-bottom:18px;font-weight:600}
+    .life-list{display:flex;flex-direction:column;gap:10px;margin:6px 0 0}
+    .life-item{display:flex;align-items:flex-start;gap:12px;padding:14px 18px;background:var(--cream);border-radius:12px;font-size:1.05rem;color:var(--text);line-height:1.6}
+    .life-item::before{content:'—';color:var(--accent);font-weight:700;flex-shrink:0;margin-top:1px}
+    .mechanism-block{background:var(--cream);border-radius:20px;padding:32px;margin-bottom:48px;border-left:4px solid var(--accent)}
+    .mechanism-block p{font-size:1.1rem;color:var(--text);line-height:1.85;font-weight:300}
+    .route-list{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+    .route-item{display:flex;align-items:flex-start;gap:12px;padding:14px 18px;background:#fff;border:1px solid var(--sand);border-radius:12px;font-size:1.05rem;color:var(--text);line-height:1.6}
+    .route-item i{color:var(--accent);flex-shrink:0;margin-top:3px;font-size:.9rem}
+    .cta-block{background:var(--dark);border-radius:28px;padding:48px 40px;text-align:center;margin-top:64px;position:relative;overflow:hidden}
+    .cta-block::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--green))}
+    .cta-block p.cta-tag{font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;color:var(--taupe);font-weight:600;margin-bottom:16px}
+    .cta-block h2{font-family:var(--font-d);font-size:clamp(1.8rem,3.5vw,2.6rem);color:#fff;line-height:1.18;margin-bottom:16px}
+    .cta-block h2 em{color:var(--accent);font-style:italic}
+    .cta-block .cta-sub{font-size:1.05rem;color:rgba(255,255,255,.5);margin-bottom:36px;line-height:1.75;font-weight:300}
+    .btn-cta{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:#fff;padding:18px 44px;border-radius:100px;font-family:var(--font-b);font-size:1.1rem;font-weight:600;transition:all .25s;box-shadow:0 4px 20px rgba(193,127,74,.35)}
+    .btn-cta:hover{background:var(--accent-dark);transform:translateY(-2px);box-shadow:0 8px 28px rgba(193,127,74,.45)}
+    .cta-retake{display:block;margin-top:18px;font-size:.9rem;color:rgba(255,255,255,.3);transition:color .2s}
+    .cta-retake:hover{color:rgba(255,255,255,.6)}
+    footer{background:#1A1208;padding:28px 40px;display:flex;justify-content:center}
+    .foot-text{font-size:.9rem;color:rgba(255,255,255,.2)}
+    .foot-meta{font-size:.78rem;color:rgba(255,255,255,.18)}
+    .scores-block{margin-bottom:56px;padding-bottom:56px;border-bottom:1px solid var(--sand)}
+    .scores-block h2{font-family:var(--font-d);font-size:clamp(1.5rem,3vw,2rem);color:var(--dark);margin-bottom:24px;font-weight:600}
+    .score-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+    .score-name{font-size:.95rem;color:var(--muted);font-weight:500;min-width:140px;flex-shrink:0}
+    .score-bar-wrap{flex:1;height:7px;background:var(--sand);border-radius:100px;overflow:hidden}
+    .score-bar-fill{height:100%;background:var(--taupe);border-radius:100px}
+    .score-pct{font-size:.9rem;color:var(--muted);font-weight:500;min-width:38px;text-align:right}
+    .score-row.is-winner .score-name{color:var(--accent-dark);font-weight:700}
+    .score-row.is-winner .score-bar-fill{background:linear-gradient(90deg,var(--accent),var(--accent-dark))}
+    .score-row.is-winner .score-pct{color:var(--accent-dark);font-weight:700}
+    .mcw-block{margin-bottom:48px;padding:32px;background:var(--green-light);border-radius:20px}
+    .mcw-tag{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--green);font-weight:700;margin-bottom:10px}
+    .mcw-block h2{font-family:var(--font-d);font-size:clamp(1.4rem,3vw,1.9rem);color:var(--dark);margin-bottom:16px;font-weight:600}
+    .mcw-body p{font-size:1.05rem;color:var(--text);line-height:1.85;font-weight:300;margin-bottom:14px}
+    .mcw-body p:last-child{margin-bottom:0}
+    .detail-cta{text-align:center;margin-bottom:56px}
+    .detail-cta p{font-size:1rem;color:var(--muted);margin-bottom:20px;font-weight:300}
+    .btn-detail{display:inline-flex;align-items:center;gap:10px;border:2px solid var(--accent);color:var(--accent-dark);padding:16px 40px;border-radius:100px;font-family:var(--font-b);font-size:1rem;font-weight:600;transition:all .25s}
+    .btn-detail:hover{background:var(--accent-light);transform:translateY(-2px)}
+    @media(max-width:600px){.page{padding:96px 20px 80px}nav{padding:14px 20px}.cta-block{padding:36px 24px}.nav-logo{font-size:.95rem;white-space:nowrap}.nav-back{font-size:.8rem}nav>div{gap:10px}}
+  </style>
+<script src="../../js/consent.js"></script>
+</head>
+<body>
+<nav>
+  <a href="../../index.html" class="nav-logo">Татьяна Наумкина — психолог</a>
+  <div style="display:flex;align-items:center;gap:20px">
+    <a href="../index.html" class="nav-back"><i class="fa-solid fa-arrow-left"></i> Пройти снова</a>
+    <a href="../../index.html" class="nav-back">Перейти на главную</a>
+  </div>
+</nav>
+
+<div class="page">
+
+  <div class="result-hero">
+    <div class="result-label"><i class="fa-solid fa-circle-dot"></i> Ваш результат</div>
+    <h1>Вы всегда в режиме<br><em>боевой готовности</em></h1>
+    <p class="lead">Вы не тревожный и не подозрительный — вы хорошо знаете, что доверие может быть использовано против вас. Когда-то это знание было необходимым. Теперь оно работает даже там, где угрозы нет.</p>
+  </div>
+
+  <div class="scores-block">
+    <h2>Ваш профиль характера</h2>
+    <div id="scoresList"></div>
+  </div>
+
+  <div class="result-block">
+    <h2>В общении с людьми</h2>
+    <div class="life-list">
+      <div class="life-item">За словами и поступками других вы ищете скрытые мотивы — и часто находите их там, где их нет</div>
+      <div class="life-item">Критику воспринимаете как атаку, даже если человек говорит нейтрально</div>
+      <div class="life-item">Предательство в прошлом закрыло что-то важное в настоящем — это влияет на нынешние отношения</div>
+      <div class="life-item">Людям рядом трудно: они чувствуют, что всегда под неявной проверкой</div>
+      <div class="life-item">Конфликт редко разрешается через доверие — скорее через выяснение «кто прав»</div>
+    </div>
+  </div>
+
+  <div class="mechanism-block">
+    <p>Когда что-то идёт не так, появляется ощущение: «это не случайность». Когда кто-то ведёт себя нейтрально, внутри поднимается вопрос: «а что на самом деле?». Это не подозрительность — это хорошо усвоенный урок о том, что доверие может стоить дорого. Он работает постоянно, даже там, где угрозы нет.</p>
+  </div>
+
+  <div class="detail-cta">
+    <p>Хотите разобраться, что с этим делать?</p>
+    <a href="что-делать-параноидный.html" class="btn-detail">Что с этим делать <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+
+</div>
+
+<footer><div class="foot-text">© Татьяна Наумкина</div><p class="foot-meta"><a href="../privacy.html" style="color:rgba(255,255,255,.35)">Политика конфиденциальности</a> &nbsp;·&nbsp; <a href="../consent.html" style="color:rgba(255,255,255,.35)">Согласие на обработку данных</a> &nbsp;·&nbsp; <a href="../offer.html" style="color:rgba(255,255,255,.35)">Договор оферты</a></p></footer>
+<script>
+(function(){
+  var NAMES={S:'Отстранённый',N:'Достигатель',P:'Бдительный',D:'Заботливый',H:'Яркий',O:'Организатор',M:'Терпеливый',Ps:'Независимый'};
+  var ORDER=['S','N','P','D','H','O','M','Ps'];
+  var MAX=12;
+  var stored=localStorage.getItem('quizScores');
+  if(!stored)return;
+  var scores=JSON.parse(stored);
+  var winner=localStorage.getItem('quizWinner');
+  var sorted=ORDER.slice().sort(function(a,b){return scores[b]-scores[a];});
+  var list=document.getElementById('scoresList');
+  sorted.forEach(function(b){
+    var pct=Math.max(0,Math.round(scores[b]/MAX*100));
+    var row=document.createElement('div');
+    row.className='score-row'+(b===winner?' is-winner':'');
+    row.innerHTML='<div class="score-name">'+NAMES[b]+'</div><div class="score-bar-wrap"><div class="score-bar-fill" style="width:'+pct+'%"></div></div><div class="score-pct">'+pct+'%</div>';
+    list.appendChild(row);
+  });
+})();
+</script>
+</body>
+</html>
