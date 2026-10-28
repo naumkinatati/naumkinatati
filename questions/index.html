@@ -29,13 +29,12 @@
       <form id="question-form" action="https://formsubmit.co/off.naum@yandex.ru" method="post" data-endpoint="https://formsubmit.co/off.naum@yandex.ru">
         <div class="field-heading"><label for="question">Ваш вопрос</label><span class="anonymous-mark"><svg width="14" height="16" viewBox="0 0 14 16" fill="none" aria-hidden="true"><rect x="2" y="7" width="10" height="8" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M4 7V4a3 3 0 0 1 6 0v3" stroke="currentColor" stroke-width="1.3"/></svg>Анонимно</span></div>
         <p class="field-help" id="question-help">Можно описать ситуацию и то, что хочется понять.</p>
-        <textarea id="question" name="Вопрос" rows="7" maxlength="3000" required placeholder="Хочу спросить…" aria-describedby="question-help question-privacy question-counter form-error"></textarea>
+        <textarea id="question" name="message" rows="7" maxlength="3000" required placeholder="Хочу спросить…" aria-describedby="question-help question-privacy question-counter form-error"></textarea>
         <div class="under-field"><p id="question-privacy">Не указывайте имена, контакты и подробности, по которым можно узнать вас или других людей.</p><span id="question-counter" aria-label="Введено символов">0 / 3000</span></div>
-        <div class="honeypot" aria-hidden="true"><label for="website">Ваш сайт</label><input id="website" type="text" name="_honey" tabindex="-1" autocomplete="off"></div>
         <input type="hidden" name="_subject" value="Новый анонимный вопрос с naumkinatati.ru">
         <input type="hidden" name="_template" value="table">
         <input type="hidden" name="_next" value="https://naumkinatati.ru/questions/thanks.html">
-        <label class="consent" for="publication-consent"><input id="publication-consent" type="checkbox" name="Разрешение на ответ в соцсетях" value="Да, без имён и узнаваемых подробностей" required><span>Можно использовать мой вопрос для ответа в соцсетях без имён и узнаваемых подробностей.</span></label>
+        <label class="consent" for="publication-consent"><input id="publication-consent" type="checkbox" name="publication_consent" value="Да, без имён и узнаваемых подробностей" required><span>Можно использовать мой вопрос для ответа в соцсетях без имён и узнаваемых подробностей.</span></label>
         <p id="form-error" class="form-error" role="alert" hidden></p>
         <button class="submit-button" type="submit"><span>Отправить вопрос</span><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m3 3 14 7-14 7 2-7-2-7Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M5 10h12" stroke="currentColor" stroke-width="1.5"/></svg></button>
         <p class="form-footnote">Имя и адрес почты автора не запрашиваются.</p>
