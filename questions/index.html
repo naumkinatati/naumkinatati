@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Задайте анонимный вопрос психологу Татьяне Наумкиной. Без имени, контактов и регистрации. Ответы — в Telegram и других соцсетях.">
+  <meta name="theme-color" content="#fffdf9">
+  <title>Анонимный вопрос — Татьяна Наумкина</title>
+  <link rel="stylesheet" href="https://naumkinatati.ru/fonts/fonts.css">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#question">Перейти к вопросу</a>
+  <header class="site-header">
+    <a class="wordmark" href="https://naumkinatati.ru/">Татьяна Наумкина <span>— психолог</span></a>
+    <a class="back-link" href="https://naumkinatati.ru/">На основной сайт <span aria-hidden="true">↗</span></a>
+  </header>
+  <main class="question-layout">
+    <section class="intro" aria-labelledby="page-title">
+      <div class="author">
+        <img src="https://naumkinatati.ru/test/photo.jpg" width="68" height="68" alt="Татьяна Наумкина">
+        <div><p>Татьяна Наумкина</p><span>Психолог</span></div>
+      </div>
+      <h1 id="page-title">О чём вы хотите<br>меня спросить?</h1>
+      <p class="lead">Здесь можно задать вопрос анонимно.<br class="desktop-break"> Без имени, контактов и регистрации.</p>
+      <p class="intro-detail">Напишите о том, что вас волнует. Необязательно подбирать правильные слова — можно так, как получается.</p>
+    </section>
+    <section class="form-panel" aria-label="Форма анонимного вопроса">
+      <form id="question-form" action="https://formsubmit.co/off.naum@yandex.ru" method="post" data-endpoint="https://formsubmit.co/off.naum@yandex.ru">
+        <div class="field-heading"><label for="question">Ваш вопрос</label><span class="anonymous-mark"><svg width="14" height="16" viewBox="0 0 14 16" fill="none" aria-hidden="true"><rect x="2" y="7" width="10" height="8" rx="2" stroke="currentColor" stroke-width="1.3"/><path d="M4 7V4a3 3 0 0 1 6 0v3" stroke="currentColor" stroke-width="1.3"/></svg>Анонимно</span></div>
+        <p class="field-help" id="question-help">Можно описать ситуацию и то, что хочется понять.</p>
+        <textarea id="question" name="Вопрос" rows="7" maxlength="3000" required placeholder="Хочу спросить…" aria-describedby="question-help question-privacy question-counter form-error"></textarea>
+        <div class="under-field"><p id="question-privacy">Не указывайте имена, контакты и подробности, по которым можно узнать вас или других людей.</p><span id="question-counter" aria-label="Введено символов">0 / 3000</span></div>
+        <div class="honeypot" aria-hidden="true"><label for="website">Ваш сайт</label><input id="website" type="text" name="_honey" tabindex="-1" autocomplete="off"></div>
+        <input type="hidden" name="_subject" value="Новый анонимный вопрос с naumkinatati.ru">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://naumkinatati.ru/questions/thanks.html">
+        <label class="consent" for="publication-consent"><input id="publication-consent" type="checkbox" name="Разрешение на ответ в соцсетях" value="Да, без имён и узнаваемых подробностей" required><span>Можно использовать мой вопрос для ответа в соцсетях без имён и узнаваемых подробностей.</span></label>
+        <p id="form-error" class="form-error" role="alert" hidden></p>
+        <button class="submit-button" type="submit"><span>Отправить вопрос</span><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m3 3 14 7-14 7 2-7-2-7Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><path d="M5 10h12" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        <p class="form-footnote">Имя и адрес почты автора не запрашиваются.</p>
+      </form>
+      <details class="privacy-details"><summary>Как работает анонимность</summary><div><p>Форма не просит имя, телефон, почту или вход в аккаунт. Татьяна получает текст вопроса и ваше разрешение на ответ в соцсетях.</p><p id="delivery-details">Вопрос передаётся сервису <a href="https://formsubmit.co/privacy.pdf" target="_blank" rel="noopener noreferrer">FormSubmit</a>, который пересылает его на почту Татьяны. Не отправляйте через форму сведения, которые хотите сохранить только между вами и вашим психологом.</p><p>Анонимность относится к данным, которые запрашивает форма. Хостинг и сервис доставки могут обрабатывать технические данные соединения.</p></div></details>
+    </section>
+    <aside class="answer-note">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4.5h14a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5h-7l-5 4v-4H5A1.5 1.5 0 0 1 3.5 15V6A1.5 1.5 0 0 1 5 4.5Z" stroke="currentColor" stroke-width="1.4"/><path d="M8 9h8m-8 4h5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+      <div><p>Где искать ответ</p><span>Отвечаю в <a href="https://t.me/+v5XynNZpxG1lMmZi" target="_blank" rel="noopener noreferrer">Telegram</a> и других соцсетях.<br>Личного ответа по почте здесь нет.</span></div>
+    </aside>
+  </main>
+  <footer class="site-footer"><span>© 2026 Татьяна Наумкина</span><a href="https://naumkinatati.ru/">naumkinatati.ru</a></footer>
+  <script src="./questions.js" defer></script>
+</body>
+</html>
